@@ -1,0 +1,85 @@
+<!-- SIDEBAR DESKTOP (Container CSS) -->
+    @if (!isMobile()) {
+      <aside class="sidebar-desktop" [class.collapsed]="isCollapsed()">
+        <div class="brand-header">
+          <div class="brand-left">
+            <div class="brand-logo">A</div>
+            @if (!isCollapsed()) {
+              <span class="brand-title">Acme Inc</span>
+            }
+          </div>
+          <button type="button" class="btn-toggle" (click)="toggleCollapse.emit()" title="Recolher menu">
+            <i class="pi pi-bars"></i>
+          </button>
+        </div>
+
+        <nav class="navigation-menu">
+          @if (!isCollapsed()) {
+            <div class="menu-label">Menu</div>
+          }
+          @for (item of menuItems(); track item.label) {
+            <button type="button" class="nav-item" [class.active]="item.active" [title]="isCollapsed() ? item.label : ''" [routerLink]="item.rota">
+              <div class="nav-item-content">
+                <i [class]="item.icon"></i>
+                @if (!isCollapsed()) {
+                  <span>{{ item.label }}</span>
+                }
+              </div>
+              @if (item.badge && !isCollapsed()) {
+                <span class="nav-badge">{{ item.badge }}</span>
+              }
+            </button>
+          }
+        </nav>
+
+        <div class="user-footer">
+          <p-avatar label="JD" shape="circle" styleClass="user-avatar"></p-avatar>
+          @if (!isCollapsed()) {
+            <span class="user-name">John Doe</span>
+          }
+        </div>
+      </aside>
+    }
+
+    <!-- DRAWER MOBILE (PrimeNG v21) -->
+    <p-drawer 
+      [visible]="mobileMenuOpen()" 
+      (visibleChange)="mobileMenuOpenChange.emit($event)" 
+      position="left" 
+      [modal]="true" 
+      [closable]="false" 
+      styleClass="mobile-drawer">
+
+      <ng-template #header>
+        <div class="brand-header w-full px-0 justify-between">
+          <div class="brand-left">
+            <div class="brand-logo">A</div>
+            <span class="brand-title">Acme Inc</span>
+          </div>
+          <button type="button" class="btn-toggle" (click)="mobileMenuOpenChange.emit(false)" title="Fechar menu">
+            <i class="pi pi-times"></i>
+          </button>
+        </div>
+      </ng-template>
+
+      <nav class="navigation-menu px-0 pt-2">
+        @for (item of menuItems(); track item.label) {
+          <button type="button" class="nav-item" [class.active]="item.active" (click)="mobileMenuOpenChange.emit(false)">
+            <div class="nav-item-content">
+              <i [class]="item.icon"></i>
+              <span>{{ item.label }}</span>
+            </div>
+            @if (item.badge) {
+              <span class="nav-badge">{{ item.badge }}</span>
+            }
+          </button>
+        }
+      </nav>
+
+      <ng-template #footer>
+        <div class="user-footer border-0 p-0">
+          <p-avatar label="JD" shape="circle" styleClass="user-avatar"></p-avatar>
+          <span class="user-name">John Doe</span>
+        </div>
+      </ng-template>
+    </p-drawer>

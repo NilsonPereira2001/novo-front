@@ -1,0 +1,26 @@
+<div class="layout-wrapper">
+      <app-sidebar
+        [isMobile]="isMobile()"
+        [isCollapsed]="isCollapsed()"
+        [(mobileMenuOpen)]="mobileMenuOpen"
+        (toggleCollapse)="toggleCollapse()">
+      </app-sidebar>
+
+      <main 
+        class="main-content" 
+        [class.desktop-offset]="!isMobile() && !isCollapsed()"
+        [class.desktop-offset-collapsed]="!isMobile() && isCollapsed()">
+
+        <app-header
+          [title]="'Dashboard'"
+          [isMobile]="isMobile()"
+          [isCollapsed]="isCollapsed()"
+          (toggleCollapse)="toggleCollapse()"
+          (openMobileMenu)="mobileMenuOpen.set(true)">
+        </app-header>
+
+        <section class="content-body">
+            <router-outlet/>
+        </section>
+      </main>
+    </div>

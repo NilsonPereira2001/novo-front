@@ -1,0 +1,20 @@
+<header class="topbar">
+      <div class="topbar-left">
+        @if (isMobile()) {
+          <button type="button" class="btn-toggle mr-1" (click)="openMobileMenu.emit()">
+            <i class="pi pi-bars"></i>
+          </button>
+        } @else if (isCollapsed()) {
+          <button type="button" class="btn-toggle mr-1" (click)="toggleCollapse.emit()" title="Expandir menu">
+            <i class="pi pi-bars"></i>
+          </button>
+        }
+
+        <i class="pi pi-window-maximize text-xs text-slate-400"></i>
+        <span class="page-title">{{ title() }}</span>
+      </div>
+
+      <div class="topbar-right">
+        <span class="tag-desktop">Desktop</span>
+      </div>
+    </header>

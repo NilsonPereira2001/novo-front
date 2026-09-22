@@ -1,0 +1,78 @@
+<div class="login-container">
+  <div class="brand-section">
+    <div class="brand-header">
+      <div class="logo-box">
+        <img class="logo-box" src="assets/logos/logo-worktec.png" alt="">
+      </div>
+      <div class="brand-title">
+        <h1>EixoGestão</h1>
+        <span>Gestão para sua empresa</span>
+      </div>
+    </div>
+
+    <div class="brand-content">
+      <div class="badge">
+        <i class="pi pi-shield"></i>
+        <span>AMBIENTE ADMINISTRATIVO</span>
+      </div>
+      <h2>Gestão séria para quem cuida de pessoas.</h2>
+      <p>Centralize toda a gestão da sua empresa em um so lugar.</p>
+    </div>
+
+    <div class="brand-footer">
+      <i class="pi pi-lock"></i>
+      <span>© 2026 Worktec Soluções Tecnológicas. Todos os direitos reservados</span>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <div class="theme-toggle">
+      <i class="pi pi-moon"></i>
+    </div>
+
+    <div class="form-wrapper">
+      <img src="assets/logos/logo-empresa.png" style="width: 100%;">
+      <span class="area-badge">ÁREA SEGURA</span>
+      <h2 class="form-title">Acesse sua conta</h2>
+      <p class="form-subtitle">Use seu CPF e sua senha para continuar.</p>
+
+      <form (ngSubmit)="onLogin()">
+        <div class="field">
+          <label for="cpf">CPF</label>
+          <p-inputMask 
+            id="cpf"
+            mask="999.999.999-99" 
+            [(ngModel)]="cpf" 
+            name="cpf" 
+            placeholder="000.000.000-00"
+            [style]="{'width':'100%'}">
+          </p-inputMask>
+        </div>
+
+        <div class="field">
+          <label for="senha">Senha</label>
+          <p-password 
+            id="senha"
+            [(ngModel)]="senha" 
+            name="senha" 
+            placeholder="Digite sua senha" 
+            [toggleMask]="true" 
+            [feedback]="false"
+            [style]="{'width':'100%'}"
+            [inputStyle]="{'width':'100%'}">
+          </p-password>
+        </div>
+
+        <p-button 
+          label="Entrar" 
+          type="submit" 
+          styleClass="w-full btn-login">
+        </p-button>
+      </form>
+
+      <span class="terms-notice">
+        Ao continuar, você confirma que possui autorização para acessar este sistema.
+      </span>
+    </div>
+  </div>
+</div>

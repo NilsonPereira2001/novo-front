@@ -1,0 +1,150 @@
+<div class="container">
+  <div class="page-container">
+
+    <!-- Header com Contadores -->
+    <header class="page-header">
+      <div class="header-titles">
+        <span class="section-label">CADASTRO CENTRAL</span>
+        <h1>Pessoas</h1>
+        <p class="description">Consulte e organize associados, dependentes e funcionários em uma única área.</p>
+      </div>
+
+      <div class="stats-container">
+        <div class="stat-card">
+          <span class="stat-number">128</span>
+          <span class="stat-label">registros</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">74</span>
+          <span class="stat-label">associados</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">9</span>
+          <span class="stat-label">pendências</span>
+        </div>
+      </div>
+    </header>
+
+    <hr class="divider" />
+
+    <!-- Filtros por Categoria -->
+    <div class="filter-bar">
+      <div class="filter-pills">
+        <button 
+          *ngFor="let filter of filters" 
+          class="pill-btn" 
+          [class.active]="selectedFilter === filter"
+          (click)="selectedFilter = filter">
+          {{ filter }}
+        </button>
+      </div>
+      <div class="search-input-wrapper">
+        <i class="pi pi-search search-icon"></i>
+        <input type="text" placeholder="Buscar por nome ou CPF" class="custom-search-input"/>
+      </div>
+    </div>
+
+    <div class="table-card">
+      <div class="desktop-view">
+        <p-table [value]="people" styleClass="custom-table" [rowHover]="true">
+          <ng-template pTemplate="header">
+            <tr>
+              <th style="width: 35%">NOME</th>
+              <th style="width: 20%">CATEGORIA</th>
+              <th style="width: 20%">TELEFONE</th>
+              <th style="width: 15%">SITUAÇÃO</th>
+              <th style="width: 15%;">RESTRIÇÃO</th>
+              <th style="width: 10%" class="text-right">AÇÕES</th>
+            </tr>
+          </ng-template>
+
+          <ng-template pTemplate="body" let-person>
+            <tr>
+              <td>
+                <div class="user-cell">
+                  <p-avatar [label]="person.initials" styleClass="custom-avatar" size="large"></p-avatar>
+                  <div class="user-info">
+                    <span class="user-name">{{ person.name }}</span>
+                    <span class="user-meta">{{ person.code }} · desde {{ person.since }}</span>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <span class="category-badge">{{ person.category }}</span>
+              </td>
+              <td>
+                <span class="phone-text">{{ person.phone }}</span>
+              </td>
+              <td>
+                <div class="status-cell">
+                  <span class="status-dot" [ngClass]="person.status.toLowerCase()"></span>
+                  <span class="status-text">{{ person.status }}</span>
+                </div>
+              </td>
+              <td></td>
+              <td class="text-right">
+                <div class="actions-cell">
+                  <p-button label="Ver cadastro" [outlined]="true" severity="secondary" size="small" styleClass="btn-view"></p-button>
+                  <button class="btn-more" type="button">
+                    <i class="pi pi-ellipsis-h"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+
+      <div class="mobile-view">
+        <div *ngFor="let person of people" class="mobile-person-card">
+          <div class="mobile-card-header">
+            <div class="user-cell">
+              <p-avatar [label]="person.initials" styleClass="custom-avatar"></p-avatar>
+              <div class="user-info">
+                <span class="user-name">{{ person.name }}</span>
+                <span class="user-meta">{{ person.code }} · desde {{ person.since }}</span>
+              </div>
+            </div>
+            <button class="btn-more" type="button">
+              <i class="pi pi-ellipsis-h"></i>
+            </button>
+          </div>
+
+          <div class="mobile-card-body">
+            <div class="mobile-info-row">
+              <span class="category-badge">{{ person.category }}</span>
+              <div class="status-cell">
+                <span class="status-dot" [ngClass]="person.status.toLowerCase()"></span>
+                <span class="status-text">{{ person.status }}</span>
+              </div>
+            </div>
+
+            <div class="mobile-info-row phone-row">
+              <span class="mobile-label">Telefone:</span>
+              <span class="phone-text">{{ person.phone }}</span>
+            </div>
+          </div>
+
+          <div class="mobile-card-footer">
+            <p-button label="Ver cadastro" [outlined]="true" severity="secondary" size="small" styleClass="btn-view w-full"></p-button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- Rodapé e Paginação -->
+    <footer class="page-footer">
+      <p-button 
+        label="Nova pessoa" 
+        icon="pi pi-plus" 
+        styleClass="btn-custom">
+      </p-button> 
+      <div class="pagination">
+        <button class="page-btn disabled" disabled>Anterior</button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn disabled" disabled>Próxima</button>
+      </div>
+    </footer>
+
+  </div>
+</div>
