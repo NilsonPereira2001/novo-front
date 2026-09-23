@@ -23,4 +23,20 @@
     </header>
 
     <hr class="divider" />
+  <!-- Top Navigation Bar -->
+  <div class="top-nav">
+    <nav>
+      <button class="nav-item active" routerLink="/financeiro/dashboard"><span class="icon">📂</span> Dashboard</button>
+      <button class="nav-item"><span class="icon">👥</span> Associados</button>
+      <button class="nav-item"><span class="icon">📄</span> Lançamentos</button>
+      <button class="nav-item"><span class="icon">🏛️</span> Bancos</button>
+      <button class="nav-item"><span class="icon">📊</span> Relatórios</button>
+      <button class="nav-item"><span class="icon" routerLink="/financeiro/convenios">🤝</span> Convênios</button>
+      <button class="nav-item"><span class="icon">✉️</span> Planos</button>
+    </nav>
+  </div>
+
+  <main class="main">
+    <router-outlet/>
+  </main>
 </div>

@@ -1,6 +1,17 @@
 @import "primeicons/primeicons.css";
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
+$bg-main: #fbf9f4;
+$bg-card: #ffffff;
+$text-dark: #1f2937;
+$text-muted: #6b7280;
+$border-color: #e5e7eb;
+$green: #16a34a;
+$gold: #ca8a04;
+$red: #dc2626;
+
+
+
 :root {
   /* Variáveis globais de fonte */
   --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
