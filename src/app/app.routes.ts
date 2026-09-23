@@ -21,6 +21,10 @@ export const routes: Routes = [
         {
           path: "pessoas",
           loadChildren: () => import('./modules/pessoas/pessoas-module').then(m => m.PessoasModule)
+        },
+        {
+          path: "financeiro",
+          loadChildren: () => import('./modules/financeiro/financeiro-module').then(m => m.FinanceiroModule)
         }
 
     ]

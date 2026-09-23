@@ -5,6 +5,7 @@ import { AvatarModule } from 'primeng/avatar';
 import { ButtonModule } from 'primeng/button';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
+import { RouterLink } from '@angular/router';
 
 interface Person {
   initials: string;
@@ -18,7 +19,7 @@ interface Person {
 }
 
 @Component({
-  imports: [CommonModule, TableModule, AvatarModule, ButtonModule, IconFieldModule, InputIconModule],
+  imports: [CommonModule, TableModule, AvatarModule, ButtonModule, IconFieldModule, InputIconModule, RouterLink],
   selector: 'app-pessoas-page',
   styleUrl: './pessoas-page.scss',
   templateUrl: './pessoas-page.html'
