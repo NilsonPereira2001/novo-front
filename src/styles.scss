@@ -9,6 +9,10 @@ $border-color: #e5e7eb;
 $green: #16a34a;
 $gold: #ca8a04;
 $red: #dc2626;
+$bg-input: #f6f4ed;
+$border-input: #e2ded3;
+$text-label: #52504a;
+$border-card: #e8e5dc;
 
 
 
@@ -152,6 +156,7 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12) !important;
   cursor: pointer;
   transition: filter 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
 }
 
 .btn-custom.p-button:hover {
@@ -164,7 +169,160 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   font-weight: bold !important;
 }
 
+/* src/styles.scss (Global) */
 
+/* 1. pInputText e p-datepicker (Campos de Texto) */
+input.p-inputtext,
+.p-datepicker-input {
+  width: 100%;
+  height: 38px;
+  padding: 0 0.75rem;
+  background-color: $bg-input !important;
+  border: 1px solid $border-input !important;
+  border-radius: 8px !important;
+  font-size: 0.875rem !important;
+  color: $text-dark !important;
+  box-shadow: none !important;
 
+  &::placeholder {
+    color: #b0ab9f !important;
+  }
+
+  &:focus,
+  &:focus-visible {
+    border-color: #a8a294 !important;
+    background-color: #ffffff !important;
+  }
+}
+
+/* 2. p-select / p-dropdown (Selects) */
+.p-select,
+.p-dropdown {
+  width: 100%;
+  height: 38px;
+  background-color: $bg-input !important;
+  border: 1px solid $border-input !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  display: flex;
+  align-items: center;
+
+  .p-select-label,
+  .p-dropdown-label {
+    padding: 0 0.75rem !important;
+    font-size: 0.875rem !important;
+    color: $text-dark !important;
+    display: flex;
+    align-items: center;
+  }
+
+  .p-select-dropdown,
+  .p-dropdown-trigger {
+    width: 2.2rem;
+    color: $text-label !important;
+  }
+
+  &:not(.p-disabled):hover {
+    border-color: #a8a294 !important;
+  }
+
+  &.p-focus {
+    border-color: #a8a294 !important;
+    background-color: #ffffff !important;
+  }
+}
+
+/* 3. p-datepicker (Campo Data) */
+.p-datepicker-host,
+p-datepicker {
+  width: 100%;
+  display: block;
+}
+
+.p-datepicker-input-container {
+  width: 100%;
+}
+
+/* 4. Painéis Suspensos (Popups) - Como são renderizados fora da árvore do componente (no body) */
+.p-select-overlay,
+.p-dropdown-panel,
+.p-datepicker-panel {
+  background-color: #ffffff !important;
+  border: 1px solid $border-card !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+.table-card {
+  background: #ffffff;
+  border: 1px solid #e5e2d9;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+::ng-deep .custom-table .p-datatable-thead > tr > th {
+  background-color: #fbf9f5;
+  color: #888888;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #e5e2d9;
+  padding: 14px 20px;
+}
+
+::ng-deep .custom-table .p-datatable-tbody > tr > td {
+  border-bottom: 1px solid #f0ede5;
+  padding: 14px 20px;
+  vertical-align: middle;
+}
+
+.user-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.custom-avatar {
+  background-color: #e8e1cf !important;
+  color: #5c5038 !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  border-radius: 6px !important;
+  width: 38px !important;
+  height: 38px !important;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111111;
+}
+
+.user-meta {
+  font-size: 11px;
+  color: #888888;
+  margin-top: 2px;
+}
+
+.category-badge {
+  background-color: #f5efe3;
+  color: #937138;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+.phone-text {
+  font-size: 13px;
+  color: #444444;
+}
 
 

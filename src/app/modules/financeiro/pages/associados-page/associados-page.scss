@@ -1,0 +1,458 @@
+$bg-main: #fbf9f4;
+$bg-card: #ffffff;
+$bg-input: #f6f4ed;
+$border-card: #e8e5dc;
+$border-input: #e2ded3;
+$text-dark: #1e1e1e;
+$text-muted: #8c8980;
+$text-header: #8a857b;
+
+/* Cores dos Badges de Situação */
+$green-bg: #e6f4ea;
+$green-text: #2d7d46;
+$yellow-bg: #fcefdc;
+$yellow-text: #b4751f;
+$red-bg: #fce8e6;
+$red-text: #c53929;
+
+/* Cor do Botão Cobrar */
+$btn-brown: #5d461a;
+
+.filters-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+
+  .left-filters {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    flex: 1;
+  }
+
+  .search-box {
+    position: relative;
+    min-width: 260px;
+
+    .search-icon {
+      position: absolute;
+      left: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.85rem;
+      color: $text-muted;
+      z-index: 1;
+    }
+
+    input {
+      padding-left: 2.2rem !important;
+    }
+  }
+}
+
+.table-card {
+  background-color: $bg-card;
+  border: 1px solid $border-card;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Célula do Associado */
+.associado-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  .avatar-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: $bg-input;
+    border: 1px solid $border-input;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #6b5c3e;
+  }
+
+  .associado-info {
+    display: flex;
+    flex-direction: column;
+
+    .nome {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: $text-dark;
+    }
+
+    .matricula {
+      font-size: 0.75rem;
+      color: $text-muted;
+    }
+  }
+}
+
+/* Estilos de Textos da Tabela */
+.plano-text, .vencimento-text {
+  font-size: 0.875rem;
+  color: $text-dark;
+}
+
+.mensalidade-text {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: $text-dark;
+}
+
+/* Badges de Situação */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 16px;
+  font-size: 0.8rem;
+  font-weight: 600;
+
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+
+  &.em-dia {
+    background-color: $green-bg;
+    color: $green-text;
+    .status-dot { background-color: $green-text; }
+  }
+
+  &.pendente {
+    background-color: $yellow-bg;
+    color: $yellow-text;
+    .status-dot { background-color: $yellow-text; }
+  }
+
+  &.inadimplente {
+    background-color: $red-bg;
+    color: $red-text;
+    .status-dot { background-color: $red-text; }
+  }
+}
+
+/* Célula de Ações */
+.actions-cell {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+
+  .btn-action-outline {
+    background-color: $bg-card;
+    border: 1px solid $border-input;
+    border-radius: 8px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    color: $text-dark;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $bg-input;
+    }
+  }
+
+  .btn-action-filled {
+    background-color: $btn-brown;
+    border: none;
+    border-radius: 8px;
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #ffffff;
+    cursor: pointer;
+
+    &:hover {
+      background-color: lighten($btn-brown, 5%);
+    }
+  }
+}
+
+/* Rodapé e Paginação Customizada */
+.table-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  border-top: 1px solid $border-card;
+
+  .showing-info {
+    font-size: 0.85rem;
+    color: $text-muted;
+  }
+
+  .pagination-custom {
+    display: flex;
+    gap: 0.35rem;
+
+    .page-btn {
+      min-width: 32px;
+      height: 32px;
+      padding: 0 0.4rem;
+      border: 1px solid $border-input;
+      background-color: $bg-card;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      color: $text-dark;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &.active {
+        background-color: $btn-brown;
+        color: #ffffff;
+        border-color: $btn-brown;
+      }
+
+      &.nav-btn {
+        color: $text-muted;
+      }
+
+      &:hover:not(.active) {
+        background-color: $bg-input;
+      }
+    }
+  }
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* Customização dos Elementos do PrimeNG na Tabela */
+:host ::ng-deep {
+  .p-datatable {
+    .p-datatable-thead > tr > th {
+      background-color: transparent !important;
+      color: $text-header !important;
+      font-size: 0.8rem !important;
+      font-weight: 600 !important;
+      border-bottom: 1px solid $border-card !important;
+      padding: 1rem 1.25rem !important;
+    }
+
+    .p-datatable-tbody > tr {
+      background-color: transparent !important;
+      border-bottom: 1px solid $border-card !important;
+
+      &:last-child {
+        border-bottom: none !important;
+      }
+
+      > td {
+        padding: 0.85rem 1.25rem !important;
+        border: none !important;
+      }
+    }
+  }
+}
+
+/* =========================================
+   RESPONSIVIDADE
+   ========================================= */
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+
+  .filters-bar {
+
+    .left-filters {
+      width: 100%;
+    }
+
+    .search-box {
+      min-width: 0;
+    }
+  }
+
+  .table-card {
+    border-radius: 10px;
+  }
+
+  .actions-cell {
+    gap: 0.35rem;
+
+    .btn-action-outline,
+    .btn-action-filled {
+      white-space: nowrap;
+    }
+  }
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+  /* -------------------------
+     FILTROS
+     ------------------------- */
+
+  .filters-bar {
+    display: block;
+    margin-bottom: 1rem;
+
+    .left-filters {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.5rem;
+      width: 100%;
+      margin: 0;
+    }
+
+    .search-box,
+    .left-filters > .col-12 {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+
+  /* -------------------------
+     TABELA
+     ------------------------- */
+
+  .table-card {
+    border-radius: 10px;
+  }
+
+  .table-responsive {
+    overflow-x: auto;
+    width: 100%;
+  }
+
+
+  /* -------------------------
+     CÉLULA ASSOCIADO
+     ------------------------- */
+
+  .associado-cell {
+    gap: 0.6rem;
+
+    .avatar-circle {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      font-size: 0.75rem;
+    }
+
+    .associado-info {
+
+      .nome {
+        font-size: 0.82rem;
+        white-space: nowrap;
+      }
+
+      .matricula {
+        font-size: 0.7rem;
+      }
+    }
+  }
+
+
+  /* -------------------------
+     TABELA
+     ------------------------- */
+
+  :host ::ng-deep {
+
+    .p-datatable {
+
+      .p-datatable-thead > tr > th {
+        padding: 0.75rem 0.9rem !important;
+        font-size: 0.75rem !important;
+        white-space: nowrap;
+      }
+
+      .p-datatable-tbody > tr {
+
+        > td {
+          padding: 0.7rem 0.9rem !important;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+
+
+  /* -------------------------
+     STATUS
+     ------------------------- */
+
+  .status-badge {
+    font-size: 0.72rem;
+    padding: 0.25rem 0.6rem;
+  }
+
+
+  /* -------------------------
+     BOTÕES
+     ------------------------- */
+
+  .actions-cell {
+
+    .btn-action-outline,
+    .btn-action-filled {
+      padding: 0.35rem 0.65rem;
+      font-size: 0.72rem;
+    }
+  }
+
+
+  /* -------------------------
+     RODAPÉ
+     ------------------------- */
+
+  .table-footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 0.75rem;
+
+    .showing-info {
+      font-size: 0.75rem;
+      text-align: center;
+    }
+
+    .pagination-custom {
+      gap: 0.25rem;
+
+      .page-btn {
+        min-width: 30px;
+        height: 30px;
+        font-size: 0.75rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,141 @@
+<div class="">
+  <!-- Barra de Filtros e Ações superior -->
+  <div class="filters-bar ">
+    <div class="left-filters grid">
+      <!-- Input de Busca -->
+      <div class="search-box col-12 md:col-6 p-fluid">
+        <span class="search-icon">🔍</span>
+        <input 
+          pInputText 
+          type="text" 
+          [(ngModel)]="termoBusca" 
+          placeholder="Buscar por nome ou matrícula" />
+      </div>
+      <div class="col-12 md:col-3 p-fluid">
+        <p-select 
+            [options]="opcoesSituacao" 
+            [(ngModel)]="situacaoSelecionada" 
+            optionLabel="label" 
+            optionValue="value">
+        </p-select>
+      </div>
+      <div class="col-12 md:col-3 p-fluid">
+        <p-select 
+            [options]="opcoesSituacao" 
+            [(ngModel)]="situacaoSelecionada" 
+            optionLabel="label" 
+            optionValue="value">
+        </p-select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabela de Dados -->
+  <div class="table-card">
+
+  <div class="table-responsive">
+    <p-table [value]="associados" [tableStyle]="{ 'min-width': '50rem' }">
+
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Associado</th>
+          <th>Plano</th>
+          <th>Mensalidade</th>
+          <th>Vencimento</th>
+          <th>Situação</th>
+          <th class="text-right"></th>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-item>
+        <tr>
+
+          <td>
+            <div class="associado-cell">
+              <div class="avatar-circle">
+                {{ item.iniciais }}
+              </div>
+
+              <div class="associado-info">
+                <span class="nome">{{ item.nome }}</span>
+                <span class="matricula">{{ item.matricula }}</span>
+              </div>
+            </div>
+          </td>
+
+          <td>
+            <span class="plano-text">
+              {{ item.plano }}
+            </span>
+          </td>
+
+          <td>
+            <span class="mensalidade-text">
+              {{ item.mensalidade }}
+            </span>
+          </td>
+
+          <td>
+            <span class="vencimento-text">
+              {{ item.vencimento }}
+            </span>
+          </td>
+
+          <td>
+            <span
+              class="status-badge"
+              [ngClass]="{
+                'em-dia': item.situacao === 'Em dia',
+                'pendente': item.situacao === 'Pendente',
+                'inadimplente': item.situacao === 'Inadimplente'
+              }">
+
+              <span class="status-dot"></span>
+
+              {{ item.situacao }}
+            </span>
+          </td>
+
+          <td class="text-right">
+            <div class="actions-cell">
+
+              <button
+                type="button"
+                class="btn-action-outline"
+                (click)="verFatura(item)">
+                Ver fatura
+              </button>
+
+              <button
+                *ngIf="item.situacao !== 'Em dia'"
+                type="button"
+                class="btn-action-filled"
+                (click)="cobrar(item)">
+                Cobrar
+              </button>
+
+            </div>
+          </td>
+
+        </tr>
+      </ng-template>
+
+    </p-table>
+  </div>
+
+  <div class="table-footer">
+    <span class="showing-info">
+      Mostrando 1–4 de 312
+    </span>
+
+    <div class="pagination-custom">
+      <button class="page-btn nav-btn">&lt;</button>
+      <button class="page-btn active">1</button>
+      <button class="page-btn">2</button>
+      <button class="page-btn">3</button>
+      <button class="page-btn nav-btn">&gt;</button>
+    </div>
+  </div>
+
+</div>
+</div>

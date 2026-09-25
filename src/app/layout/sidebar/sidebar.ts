@@ -31,7 +31,7 @@ export class Sidebar {
     { label: 'Home', icon: 'pi pi-home', active: true, rota: 'home'},
     { label: 'Pessoas', icon: 'pi pi-users', badge: 3, rota: 'pessoas'},
     { label: 'Financeiro', icon: 'pi pi-dollar', rota: 'financeiro'},
-    { label: 'Juridico', icon: 'pi pi-building-columns' },
+    { label: 'Juridico', icon: 'pi pi-building-columns', rota: 'juridico' },
     { label: 'Notifications', icon: 'pi pi-bell' },
     { label: 'Settings', icon: 'pi pi-cog' }
   ]);

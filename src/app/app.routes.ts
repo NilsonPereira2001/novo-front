@@ -25,6 +25,10 @@ export const routes: Routes = [
         {
           path: "financeiro",
           loadChildren: () => import('./modules/financeiro/financeiro-module').then(m => m.FinanceiroModule)
+        },
+        {
+          path: "juridico",
+          loadChildren: () => import('./modules/juridico/juridico-module').then(m => m.JuridicoModule)
         }
 
     ]

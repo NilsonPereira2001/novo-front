@@ -1,1 +1,389 @@
-<p>novo-socio works!</p>
+<div class="container">
+  <!-- Cabeçalho -->
+  <header class="page-header">
+    <div class="header-titles">
+      <span class="section-label">Cadastro central</span>
+      <h1>Novo associado</h1>
+      <p class="description">Preencha os dados pessoais, contatos e vínculos do associado.</p>
+    </div>
+  </header>
+
+  <hr class="divider" />
+
+  <div class="form-container">
+  <!-- Card 1: Dados pessoais -->
+  <section class="card">
+    <header class="card-header">
+      <h2>Dados pessoais</h2>
+      <p class="subtitle">Informações principais de identificação.</p>
+    </header>
+
+    <!-- Upload de foto -->
+    <div class="avatar-upload">
+      <div class="avatar-circle">
+        <span class="icon">📷</span>
+      </div>
+      <div class="upload-info">
+        <span class="upload-title">Foto do associado</span>
+        <span class="upload-subtitle">PNG ou JPG, até 5MB</span>
+      </div>
+    </div>
+
+    <!-- Formulário Dados Pessoais com PrimeNG -->
+    <div class="grid">
+        <div class="col-12 md:col-2 p-fluid">
+        <label for="dataCadastro">Data de Cadastro</label>
+        <p-datePicker 
+          id="dataNascimento" 
+          [(ngModel)]="dataNascimento" 
+          dateFormat="dd/mm/yy"
+          placeholder="dd/mm/aaaa"
+          [showIcon]="true"
+          iconDisplay="input">
+        </p-datePicker>
+      </div>
+      <div class="col-12 md:col-2 p-fluid">
+        <label for="cpf">CPF</label>
+        <input pInputText id="cpf" type="text" placeholder="000.000.000-00" />
+      </div>
+      <div class="col-12 md:col-4 p-fluid">
+        <label for="nome">Nome completo</label>
+        <input pInputText id="nome" type="text" placeholder="Nome completo" />
+      </div>
+      <div class="col-12 md:col-2 p-fluid">
+        <label for="dataNascimento">Data de nascimento</label>
+        <p-datePicker 
+          id="dataNascimento" 
+          [(ngModel)]="dataNascimento" 
+          dateFormat="dd/mm/yy"
+          placeholder="dd/mm/aaaa"
+          [showIcon]="true"
+          iconDisplay="input">
+        </p-datePicker>
+      </div>
+      <div class="col-12 md:col-2 p-fluid">
+        <label for="sexo">Sexo</label>
+        <p-select 
+          id="sexo" 
+          [options]="opcoesSexo" 
+          [(ngModel)]="sexoSelecionado" 
+          optionLabel="label" 
+          optionValue="value">
+        </p-select>
+      </div>
+      <div class="col-12 md:col-1 p-fluid">
+        <label for="rg">RG</label>
+        <input pInputText id="rg" type="text" placeholder="00.000.000-0" />
+      </div>
+      
+      <div class="col-12 md:col-2 p-fluid">
+        <label for="estadoCivil">Estado civil</label>
+        <p-select 
+          id="estadoCivil" 
+          [options]="opcoesEstadoCivil" 
+          [(ngModel)]="estadoCivilSelecionado" 
+          optionLabel="label" 
+          optionValue="value">
+        </p-select>
+      </div>
+      <div class="col-12 md:col-3 p-fluid">
+        <label for="email">E-mail</label>
+        <input pInputText id="email" type="email" placeholder="nome@email.com" />
+      </div>
+      <div class="col-12 md:col-3 p-fluid">
+        <label for="nomePai">Nome do pai</label>
+        <input pInputText id="nomePai" type="text" placeholder="Nome completo do pai" />
+      </div>
+      <div class="col-12 md:col-3 p-fluid">
+        <label for="nomeMae">Nome da mãe</label>
+        <input pInputText id="nomeMae" type="text" placeholder="Nome completo da mãe" />
+      </div>
+    </div>
+  </section>
+  <section class="card">
+    <header class="card-header">
+      <h2>Endereço</h2>
+      <p class="subtitle">Conta usada para pagamentos, reembolsos e movimentações financeiras.</p>
+    </header>
+
+    <div class="grid">
+      <div class="col-12 md:col-2 p-fluid">
+        <label for="cep">CEP</label>
+        <input pInputText id="cep" type="text" placeholder="00.000-000" />
+      </div>
+      <div class="col-12 md:col-5 p-fluid">
+        <label for="logradouro">Logradouro</label>
+        <input pInputText id="logradouro" type="text" placeholder="Ex. Rua São Luiz" />
+      </div>
+      
+      <div class="col-12 md:col-2 p-fluid">
+        <label for="numero">Numero</label>
+        <input pInputText id="numero" type="text" placeholder="Ex. 05" />
+      </div>
+      <div class="col-12 md:col-3 p-fluid">
+        <label for="complemento">Complemento</label>
+        <input pInputText id="complemento" type="text" placeholder="0000" />
+      </div>
+      <div class="col-12 md:col-3 p-fluid">
+        <label for="estado">Estado</label>
+        <p-select 
+          id="estado" 
+          [options]="opcoesEstadoCivil" 
+          [(ngModel)]="estadoCivilSelecionado" 
+          optionLabel="label" 
+          optionValue="value">
+        </p-select>
+      </div>
+      <div class="col-12 md:col-4 p-fluid">
+        <label for="cidade">Cidade</label>
+        <input pInputText id="cidade" type="text" placeholder="00000-0" />
+      </div>
+      <div class="col-12 md:col-4 p-fluid">
+        <label for="bairro">Bairro</label>
+        <input pInputText id="bairro" type="text" placeholder="00000-0" />
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <header class="card-header">
+      <h2>Dados bancários</h2>
+      <p class="subtitle">Conta usada para pagamentos, reembolsos e movimentações financeiras.</p>
+    </header>
+
+    <div class="grid">
+      <div class="col-12 md:col-4 p-fluid">
+        <label for="banco">Banco</label>
+        <p-select 
+          id="estadoCivil" 
+          [options]="opcoesEstadoCivil" 
+          [(ngModel)]="estadoCivilSelecionado" 
+          optionLabel="label" 
+          optionValue="value">
+        </p-select>
+      </div>
+      <div class="col-12 md:col-3">
+        <label for="tipoConta">Tipo de conta</label>
+        <p-select 
+          id="tipoConta" 
+          [options]="opcoesTipoConta" 
+          [(ngModel)]="tipoContaSelecionado" 
+          optionLabel="label" 
+          optionValue="value">
+        </p-select>
+      </div>
+      <div class="col-12 md:col-2 p-fluid">
+        <label for="agencia">Agência</label>
+        <input pInputText id="agencia" type="text" placeholder="0000" />
+      </div>
+      <div class="col-12 md:col-3 p-fluid">
+        <label for="conta">Conta</label>
+        <input pInputText id="conta" type="text" placeholder="00000-0" />
+      </div>
+      <div class="col-12 md:col-3 p-fluid">
+        <label for="tipoChavePix">Tipo da chave PIX</label>
+        <p-select 
+          id="tipoChavePix" 
+          [options]="opcoesTipoConta" 
+          [(ngModel)]="tipoContaSelecionado" 
+          optionLabel="label" 
+          optionValue="value">
+        </p-select>
+      </div>
+      <div class="col-12 md:col-9 p-fluid">
+        <label for="chavePix">Chave PIX</label>
+        <input pInputText id="chavePix" type="text" placeholder="00000-0" />
+      </div>
+    </div>
+  </section>
+  <section class="card">
+    <header class="card-header">
+        <h2>Telefones</h2>
+        <p class="subtitle">Adicione quantos contatos forem necessários e marque o principal.</p>
+    </header>
+
+    <div class="phones-list">
+        <div class="phone-row" *ngFor="let item of telefones; let i = index">
+        <!-- Select Tipo -->
+        <div class="type-select">
+            <p-select 
+            [options]="tiposTelefone" 
+            [(ngModel)]="item.tipo" 
+            optionLabel="label" 
+            optionValue="value">
+            </p-select>
+        </div>
+
+        <!-- Input Número -->
+        <div class="number-input">
+            <input 
+            pInputText 
+            type="text" 
+            [(ngModel)]="item.numero" 
+            placeholder="(00) 00000-0000" />
+        </div>
+
+        <!-- Radio Button Principal -->
+        <div class="principal-option">
+            <p-radioButton 
+            name="grupoPrincipal" 
+            [value]="item.id" 
+            [(ngModel)]="telefonePrincipalId" 
+            [inputId]="'radio_' + item.id">
+            </p-radioButton>
+            <label [for]="'radio_' + item.id">Principal</label>
+        </div>
+
+        <!-- Botão Remover (X) -->
+        <button 
+            type="button" 
+            class="btn-remove" 
+            (click)="removerTelefone(item.id)"
+            [disabled]="telefones.length === 1"
+            aria-label="Remover telefone">
+            ✕
+        </button>
+        </div>
+    </div>
+
+    <!-- Botão Adicionar Telefone -->
+    <button type="button" class="btn-add" (click)="adicionarTelefone()">
+        + Adicionar telefone
+    </button>
+    </section>
+    <section class="card">
+    <header class="card-header">
+      <h2>Dados Instituicionais</h2>
+      <p class="subtitle">Conta usada para pagamentos, reembolsos e movimentações financeiras.</p>
+    </header>
+
+    <div class="grid">
+      <div class="col-12 md:col-3 p-fluid">
+        <label for="formaPagamento">Forma de Pagamento</label>
+        <p-select 
+          id="formaPagamento" 
+          [options]="opcoesEstadoCivil" 
+          [(ngModel)]="estadoCivilSelecionado" 
+          optionLabel="label" 
+          optionValue="value">
+        </p-select>
+      </div>
+      <div class="col-12 md:col-3 p-fluid">
+        <label for="tipoAssociado">Tipo de Associado</label>
+        <p-select 
+          id="tipoAssociado" 
+          [options]="opcoesTipoConta" 
+          [(ngModel)]="tipoContaSelecionado" 
+          optionLabel="label" 
+          optionValue="value">
+        </p-select>
+      </div>
+      <div class="col-12 md:col-3 p-fluid">
+        <label for="vinculo">Vínculo</label>
+        <p-select 
+          id="vinculo" 
+          [options]="opcoesTipoConta" 
+          [(ngModel)]="tipoContaSelecionado" 
+          optionLabel="label" 
+          optionValue="value">
+        </p-select>
+      </div>
+      <div class="col-12 md:col-3 p-fluid">
+        <label for="instituicao">Instituição/Profissão</label>
+
+        <div class="select-with-button">
+            <p-select
+            id="instituicao"
+            [options]="opcoesTipoConta"
+            [(ngModel)]="tipoContaSelecionado"
+            optionLabel="label"
+            optionValue="value">
+            </p-select>
+
+            <button
+            type="button"
+            class="btn-remove"
+            aria-label="Adicionar Profissão">
+            +
+            </button>
+        </div>
+    </div>
+    </div>
+  </section>
+  @if (visibleCardMilitar) {
+  <section class="card">
+    <header class="card-header">
+      <h2>Dados Militar</h2>
+      <p class="subtitle">Conta usada para pagamentos, reembolsos e movimentações financeiras.</p>
+    </header>
+
+    <div class="grid">
+      <div class="col-12 md:col-3 p-fluid">
+        <label for="unidade">Unidade</label>
+        <div class="select-with-button">
+            <p-select
+                id="unidade"
+                [options]="opcoesTipoConta"
+                [(ngModel)]="tipoContaSelecionado"
+                optionLabel="label"
+                optionValue="value">
+            </p-select>
+
+            <button
+                type="button"
+                class="btn-remove"
+                aria-label="Adicionar Unidade">
+                +
+            </button>
+        </div>
+    </div>
+      <div class="col-12 md:col-2 p-fluid">
+        <label for="graduacao">Graduação/Posto</label>
+        <p-select 
+          id="graduacao" 
+          [options]="opcoesTipoConta" 
+          [(ngModel)]="tipoContaSelecionado" 
+          optionLabel="label" 
+          optionValue="value">
+        </p-select>
+      </div>
+      <div class="col-12 md:col-3 p-fluid">
+        <label for="vinculo">Quadro</label>
+        <p-select 
+          id="vinculo" 
+          [options]="opcoesTipoConta" 
+          [(ngModel)]="tipoContaSelecionado" 
+          optionLabel="label" 
+          optionValue="value">
+        </p-select>
+      </div>
+      <div class="col-12 md:col-2 p-fluid">
+        <label for="matricula">Matricula</label>
+        <input pInputText id="matricula" type="text" placeholder="0000" />
+      </div>
+      <div class="col-12 md:col-2 p-fluid">
+        <label for="dataIncorporacao">Data de Incorporação</label>
+        <p-datePicker 
+          id="dataIncorporacao" 
+          [(ngModel)]="dataNascimento" 
+          dateFormat="dd/mm/yy"
+          placeholder="dd/mm/aaaa"
+          [showIcon]="true"
+          iconDisplay="input">
+        </p-datePicker>
+      </div>
+    </div>
+  </section>
+    }
+    <footer class="footer-actions">
+            <div class="col-12 md:col-2 p-fluid">
+                <p-button
+                    label="Salvar"
+                    icon="pi pi-save"
+                    styleClass="btn-custom"
+                    routerLink="novo/socio">
+                </p-button>
+            </div>
+    </footer>
+</div>
+</div>
