@@ -1,10 +1,15 @@
-<div class="dashboard-container">
-  <!-- 1. Linha de KPIs / Indicadores Superiores -->
+<div class="container">
+  <!-- Grid de KPI Cards -->
   <div class="kpi-grid">
     <div class="kpi-card">
       <div class="kpi-header">
         <span class="kpi-title">Processos ativos</span>
-        <span class="kpi-icon">📄</span>
+        <span class="kpi-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+        </span>
       </div>
       <div class="kpi-value">47</div>
       <div class="kpi-subtitle">6 abertos este mês</div>
@@ -13,7 +18,14 @@
     <div class="kpi-card">
       <div class="kpi-header">
         <span class="kpi-title">Atendimentos no mês</span>
-        <span class="kpi-icon">📋</span>
+        <span class="kpi-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+        </span>
       </div>
       <div class="kpi-value">32</div>
       <div class="kpi-subtitle">8 agendados esta semana</div>
@@ -22,7 +34,12 @@
     <div class="kpi-card">
       <div class="kpi-header">
         <span class="kpi-title">Prazos esta semana</span>
-        <span class="kpi-icon">🕒</span>
+        <span class="kpi-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </span>
       </div>
       <div class="kpi-value">5</div>
       <div class="kpi-subtitle">2 urgentes</div>
@@ -31,110 +48,89 @@
     <div class="kpi-card">
       <div class="kpi-header">
         <span class="kpi-title">Taxa de êxito</span>
-        <span class="kpi-icon">⭐</span>
+        <span class="kpi-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+        </span>
       </div>
       <div class="kpi-value">78%</div>
       <div class="kpi-subtitle">nos últimos 12 meses</div>
     </div>
   </div>
 
-  <!-- 2. Linha do Meio: Gráfico e Prazos Próximos -->
-  <div class="middle-grid">
-    <!-- Gráfico: Processos por área -->
+  <!-- Seção Intermediária (Gráfico + Prazos Próximos) -->
+  <div class="dashboard-middle">
+    <!-- Gráfico de Distribuição por Área -->
     <div class="card chart-card">
       <div class="card-header">
-        <h2>Processos por área</h2>
-        <p class="subtitle">Distribuição dos processos ativos.</p>
+        <h2 class="card-title">Processos por área</h2>
+        <p class="card-subtitle">Distribuição dos processos ativos.</p>
       </div>
-      <div class="chart-wrapper">
-        <p-chart type="bar" [data]="chartData" [options]="chartOptions"></p-chart>
+      <div class="chart-container">
+        <div class="chart-bar-group" *ngFor="let item of areaChartData">
+          <div class="bar-track">
+            <div class="bar-fill" [style.height.%]="item.percentage"></div>
+          </div>
+          <span class="bar-label">{{ item.area }}</span>
+        </div>
       </div>
     </div>
 
     <!-- Prazos Próximos -->
-    <div class="card deadlines-card">
+    <div class="card upcoming-card">
       <div class="card-header">
-        <h2>Prazos próximos</h2>
-        <p class="subtitle">Ordenados por urgência.</p>
+        <h2 class="card-title">Prazos próximos</h2>
+        <p class="card-subtitle">Ordenados por urgência.</p>
       </div>
-
       <div class="deadlines-list">
-        <div class="deadline-item" *ngFor="let item of prazos">
+        <div class="deadline-item" *ngFor="let prazo of prazosProximos">
           <div class="deadline-info">
             <div class="deadline-title">
-              <strong>{{ item.titulo }}</strong> — {{ item.processo }}
+              <strong>{{ prazo.tipo }}</strong> — Proc. {{ prazo.processo }}
             </div>
-            <div class="deadline-client">{{ item.cliente }}</div>
+            <div class="deadline-author">{{ prazo.associado }}</div>
           </div>
-          <span class="urgency-badge" [ngClass]="item.urgenciaClass">
-            {{ item.tempo }}
-          </span>
+          <div class="badge" [ngClass]="prazo.badgeClass">
+            {{ prazo.prazo }}
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 3. Tabela: Processos Recentes -->
+  <!-- Seção Inferior: Tabela de Processos Recentes -->
   <div class="card table-card">
-    <div class="table-header">
-      <h2>Processos recentes</h2>
-      <a href="#" class="btn-see-all" (click)="$event.preventDefault()">Ver todos &rarr;</a>
+    <div class="card-header">
+      <h2 class="card-title">Processos recentes</h2>
     </div>
-
-    <p-table [value]="processosRecentes" [tableStyle]="{ 'min-width': '50rem' }">
-      <ng-template pTemplate="header">
-        <tr>
-          <th>Associado</th>
-          <th>Processo</th>
-          <th>Área</th>
-          <th>Fase</th>
-          <th>Situação</th>
-        </tr>
-      </ng-template>
-
-      <ng-template pTemplate="body" let-item>
-        <tr>
-          <!-- Associado -->
-          <td>
-            <div class="associado-cell">
-              <div class="avatar-circle">{{ item.iniciais }}</div>
-              <div class="associado-info">
-                <span class="nome">{{ item.nome }}</span>
-                <span class="matricula">{{ item.matricula }}</span>
+    <div class="table-wrapper">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Associado</th>
+            <th>Processo</th>
+            <th>Área</th>
+            <th>Fase / Situação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let proc of processosRecentes">
+            <td>
+              <div class="user-cell">
+                <div class="avatar">{{ proc.avatar }}</div>
+                <div>
+                  <div class="user-name">{{ proc.nome }}</div>
+                  <div class="user-id">{{ proc.codigo }}</div>
+                </div>
               </div>
-            </div>
-          </td>
-
-          <!-- Processo -->
-          <td>
-            <span class="text-dark">{{ item.processo }}</span>
-          </td>
-
-          <!-- Área -->
-          <td>
-            <span class="text-dark">{{ item.area }}</span>
-          </td>
-
-          <!-- Fase -->
-          <td>
-            <span class="text-dark">{{ item.fase }}</span>
-          </td>
-
-          <!-- Situação -->
-          <td>
-            <span 
-              class="status-badge" 
-              [ngClass]="{
-                'urgente': item.situacao === 'Urgente',
-                'em-andamento': item.situacao === 'Em andamento',
-                'regular': item.situacao === 'Regular'
-              }">
-              <span class="status-dot"></span>
-              {{ item.situacao }}
-            </span>
-          </td>
-        </tr>
-      </ng-template>
-    </p-table>
+            </td>
+            <td class="col-processo">{{ proc.processo }}</td>
+            <td>{{ proc.area }}</td>
+            <td class="col-fase">{{ proc.fase }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

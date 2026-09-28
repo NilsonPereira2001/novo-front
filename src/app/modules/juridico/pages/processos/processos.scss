@@ -1,0 +1,880 @@
+/* =========================================================
+   TABS
+   ========================================================= */
+
+.tabs-container {
+  display: flex;
+  gap: 10px;
+
+  overflow-x: auto;
+
+  padding-bottom: 4px;
+
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tabs-container::-webkit-scrollbar {
+  display: none;
+}
+
+.tab-btn {
+  flex-shrink: 0;
+
+  background: var(--bg-card);
+
+  border: 1px solid var(--border-card);
+  border-radius: 20px;
+
+  padding: 8px 20px;
+
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  color: var(--text-muted);
+
+  cursor: pointer;
+  white-space: nowrap;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.tab-btn:hover {
+  border-color: var(--gold-primary);
+}
+
+.tab-btn.active {
+  background-color: var(--gold-primary);
+
+  color: #ffffff;
+
+  border-color: var(--gold-primary);
+}
+
+
+/* =========================================================
+   BARRA DE AÇÕES
+   ========================================================= */
+
+.actions-bar {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 16px;
+
+  flex-wrap: wrap;
+}
+
+.filters-group {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  flex-wrap: wrap;
+
+  flex: 1;
+}
+
+
+/* =========================================================
+   BUSCA
+   ========================================================= */
+
+.search-box {
+  position: relative;
+
+  min-width: 260px;
+
+  flex: 1;
+
+  max-width: 320px;
+}
+
+.search-icon {
+  position: absolute;
+
+  left: 12px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  color: var(--text-muted);
+
+  pointer-events: none;
+}
+
+.search-box input {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 9px 12px 9px 36px;
+
+  background: var(--bg-card);
+
+  border: 1px solid var(--border-color);
+
+  border-radius: var(--radius-md);
+
+  font-family: var(--font-sans);
+
+  font-size: 0.875rem;
+
+  color: var(--text-dark);
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.search-box input::placeholder {
+  color: var(--text-muted);
+}
+
+.search-box input:focus {
+  border-color: var(--gold-primary);
+
+  box-shadow:
+    0 0 0 2px rgba(184, 147, 67, 0.1);
+}
+
+
+/* =========================================================
+   SELECTS
+   ========================================================= */
+
+.select-wrapper {
+  position: relative;
+
+  display: inline-block;
+
+  min-width: 170px;
+}
+
+.select-wrapper select {
+  width: 100%;
+
+  appearance: none;
+
+  box-sizing: border-box;
+
+  background: var(--bg-card);
+
+  border: 1px solid var(--border-color);
+
+  border-radius: var(--radius-md);
+
+  padding: 9px 32px 9px 14px;
+
+  font-family: var(--font-sans);
+
+  font-size: 0.875rem;
+
+  color: var(--text-dark);
+
+  cursor: pointer;
+
+  outline: none;
+}
+
+.select-wrapper select:focus {
+  border-color: var(--gold-primary);
+}
+
+.select-icon {
+  position: absolute;
+
+  right: 12px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  color: var(--text-muted);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   BOTÕES
+   ========================================================= */
+
+.btn-group {
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+}
+
+.btn-primary {
+  background-color: var(--gold-primary);
+
+  color: #ffffff;
+
+  border: none;
+
+  border-radius: var(--radius-md);
+
+  padding: 10px 20px;
+
+  font-family: var(--font-sans);
+
+  font-size: 0.9rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+  white-space: nowrap;
+}
+
+.btn-primary:hover {
+  background-color: var(--gold-hover);
+
+  box-shadow: var(--shadow-sm);
+}
+
+
+/* =========================================================
+   TABELA
+   ========================================================= */
+
+.table-card {
+  background: var(--bg-card);
+
+  border-radius: var(--radius-lg);
+
+  border: 1px solid var(--border-color);
+
+  overflow: hidden;
+
+  box-shadow: var(--shadow-sm);
+}
+
+.table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+
+  -webkit-overflow-scrolling: touch;
+}
+
+.data-table {
+  width: 100%;
+
+  min-width: 850px;
+
+  border-collapse: collapse;
+
+  text-align: left;
+}
+
+.data-table th {
+  background-color: var(--table-header-bg);
+
+  color: var(--text-muted);
+
+  font-weight: 500;
+
+  font-size: 0.85rem;
+
+  padding: 14px 20px;
+
+  border-bottom: 1px solid var(--border-color);
+
+  white-space: nowrap;
+}
+
+.data-table td {
+  padding: 16px 20px;
+
+  border-bottom: 1px solid var(--border-color);
+
+  font-size: 0.875rem;
+
+  vertical-align: middle;
+}
+
+.data-table tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   PROCESSO
+   ========================================================= */
+
+.proc-number {
+  font-weight: 700;
+
+  color: var(--text-dark);
+
+  white-space: nowrap;
+}
+
+.proc-type {
+  margin-top: 2px;
+
+  font-size: 0.78rem;
+
+  color: var(--text-muted);
+}
+
+
+/* =========================================================
+   USUÁRIO
+   ========================================================= */
+
+.user-cell {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  min-width: 180px;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background-color: var(--gold-soft);
+
+  color: var(--gold-dark);
+
+  font-weight: 600;
+
+  font-size: 0.75rem;
+}
+
+.user-name {
+  font-weight: 600;
+
+  color: var(--text-dark);
+
+  white-space: nowrap;
+}
+
+.user-id {
+  font-size: 0.75rem;
+
+  color: var(--text-muted);
+}
+
+
+/* =========================================================
+   TEXTOS
+   ========================================================= */
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-urgente {
+  color: var(--red);
+
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+.text-right {
+  text-align: right;
+}
+
+
+/* =========================================================
+   BADGE ÁREA
+   ========================================================= */
+
+.badge-area {
+  display: inline-block;
+
+  padding: 4px 12px;
+
+  background-color: var(--gold-light);
+
+  color: var(--gold-text);
+
+  border-radius: 12px;
+
+  font-size: 0.75rem;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   BADGE SITUAÇÃO
+   ========================================================= */
+
+.badge-situacao {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  padding: 4px 12px;
+
+  border-radius: 12px;
+
+  font-size: 0.75rem;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+.badge-situacao .dot {
+  width: 6px;
+  height: 6px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+}
+
+
+/* Urgente */
+
+.badge-urgente {
+  background-color: #fbeae8;
+
+  color: var(--red);
+}
+
+.badge-urgente .dot {
+  background-color: var(--red);
+}
+
+
+/* Em andamento */
+
+.badge-andamento {
+  background-color: #f7eedb;
+
+  color: var(--gold);
+}
+
+.badge-andamento .dot {
+  background-color: var(--gold);
+}
+
+
+/* Regular */
+
+.badge-regular {
+  background-color: #e8f5e9;
+
+  color: var(--green);
+}
+
+.badge-regular .dot {
+  background-color: var(--green);
+}
+
+
+/* Arquivado */
+
+.badge-arquivado {
+  background-color: #edebe8;
+
+  color: var(--text-gray);
+}
+
+.badge-arquivado .dot {
+  background-color: var(--text-gray);
+}
+
+
+/* =========================================================
+   BOTÕES DA TABELA
+   ========================================================= */
+
+.action-buttons {
+  display: flex;
+
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 8px;
+
+  white-space: nowrap;
+}
+
+.btn-outline {
+  background: var(--bg-card);
+
+  border: 1px solid var(--border-color);
+
+  border-radius: var(--radius-md);
+
+  padding: 6px 14px;
+
+  font-family: var(--font-sans);
+
+  font-size: 0.8rem;
+
+  color: var(--text-dark);
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.btn-outline:hover {
+  background-color: var(--bg-main);
+
+  border-color: var(--border-card);
+}
+
+.btn-more {
+  background: none;
+
+  border: none;
+
+  color: var(--text-muted);
+
+  cursor: pointer;
+
+  padding: 4px 8px;
+
+  font-size: 1rem;
+}
+
+
+/* =========================================================
+   RODAPÉ DA TABELA
+   ========================================================= */
+
+.table-footer {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 16px 20px;
+
+  border-top: 1px solid var(--border-color);
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+}
+
+.footer-info {
+  font-size: 0.85rem;
+
+  color: var(--text-muted);
+}
+
+.pagination {
+  display: flex;
+
+  gap: 6px;
+}
+
+.page-btn {
+  min-width: 32px;
+  height: 32px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: var(--radius-sm);
+
+  border: 1px solid var(--border-color);
+
+  background: var(--bg-card);
+
+  color: var(--text-dark);
+
+  font-family: var(--font-sans);
+
+  font-size: 0.85rem;
+
+  cursor: pointer;
+}
+
+.page-btn.active {
+  background-color: var(--gold-primary);
+
+  color: #ffffff;
+
+  border-color: var(--gold-primary);
+}
+
+.page-btn:disabled {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .actions-bar {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 12px;
+  }
+
+  .filters-group {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+  }
+
+  .search-box {
+    min-width: 0;
+
+    max-width: none;
+
+    grid-column: 1 / -1;
+  }
+
+  .select-wrapper {
+    width: 100%;
+
+    min-width: 0;
+  }
+
+  .btn-group {
+    width: 100%;
+  }
+
+  .btn-primary {
+    width: 100%;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  /*
+   * Remove espaçamentos laterais excessivos.
+   * Se o seu container global já tiver padding,
+   * mantenha apenas o padding do container.
+   */
+
+  .tabs-container {
+    gap: 8px;
+
+    margin-bottom: 14px;
+  }
+
+  .tab-btn {
+    padding: 7px 16px;
+
+    font-size: 0.8rem;
+  }
+
+
+  /* -------------------------------------------------------
+     FILTROS
+     ------------------------------------------------------- */
+
+  .actions-bar {
+    gap: 10px;
+  }
+
+  .filters-group {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 8px;
+  }
+
+  .search-box {
+    width: 100%;
+
+    min-width: 0;
+
+    max-width: none;
+  }
+
+  .search-box input {
+    height: 40px;
+
+    font-size: 0.82rem;
+  }
+
+  .select-wrapper {
+    width: 100%;
+  }
+
+  .select-wrapper select {
+    width: 100%;
+
+    height: 40px;
+
+    font-size: 0.82rem;
+  }
+
+
+  /* -------------------------------------------------------
+     BOTÃO NOVO PROCESSO
+     ------------------------------------------------------- */
+
+  .btn-group {
+    width: 100%;
+  }
+
+  .btn-primary {
+    width: 100%;
+
+    min-height: 40px;
+
+    padding: 9px 16px;
+
+    font-size: 0.85rem;
+  }
+
+
+  /* -------------------------------------------------------
+     CARD DA TABELA
+     ------------------------------------------------------- */
+
+  .table-card {
+    border-radius: var(--radius-md);
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+
+    /*
+     * Mantém a tabela legível.
+     * O usuário desliza horizontalmente.
+     */
+    scrollbar-width: thin;
+  }
+
+  .data-table {
+    min-width: 850px;
+  }
+
+  .data-table th {
+    padding: 12px 14px;
+
+    font-size: 0.75rem;
+  }
+
+  .data-table td {
+    padding: 12px 14px;
+
+    font-size: 0.8rem;
+  }
+
+
+  /* -------------------------------------------------------
+     RODAPÉ
+     ------------------------------------------------------- */
+
+  .table-footer {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    padding: 12px 14px;
+
+    gap: 10px;
+  }
+
+  .footer-info {
+    font-size: 0.75rem;
+
+    text-align: center;
+  }
+
+  .pagination {
+    justify-content: center;
+
+    gap: 4px;
+  }
+
+  .page-btn {
+    min-width: 30px;
+    height: 30px;
+
+    font-size: 0.75rem;
+  }
+}
+
+
+/* =========================================================
+   CELULARES PEQUENOS
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+  .tab-btn {
+    padding: 6px 14px;
+
+    font-size: 0.75rem;
+  }
+
+  .search-box input {
+    font-size: 0.78rem;
+  }
+
+  .select-wrapper select {
+    font-size: 0.78rem;
+  }
+
+  .data-table {
+    min-width: 800px;
+  }
+
+  .table-footer {
+    padding: 10px;
+  }
+}

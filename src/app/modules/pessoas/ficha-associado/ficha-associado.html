@@ -1,0 +1,120 @@
+<div class="container">
+    <header class="page-header">
+      <div class="header-titles">
+        <span class="section-label">CADASTRO DE ASSOCIADO</span>
+        <h1>Ficha do Associado</h1>
+        <p class="description">Visualize e gerencie os dados pessoais, contatos, vínculos e convênios do associado.</p>
+      </div>
+    </header>
+
+    <hr class="divider" />
+  <!-- Header de Perfil -->
+  <div class="header-card card">
+    <div class="user-profile">
+      <div class="avatar-large">HR</div>
+      <div class="profile-info">
+        <span class="subtitle-label">CADASTRO DE PESSOA</span>
+        <h1 class="profile-name">Helena Rocha</h1>
+        <div class="badges-row">
+          <span class="badge badge-associado">Associado</span>
+          <span class="code-text">AS-0241</span>
+          <span class="badge badge-status">
+            <span class="dot"></span>
+            Desligado
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botões de Ação do Topo -->
+    <div class="header-actions">
+      <button class="btn-outline">Declaração de vínculo</button>
+      <button class="btn-primary">Carteira</button>
+
+      <!-- Dropdown Mais Ações -->
+      <div class="dropdown-wrapper">
+        <button class="btn-outline dropdown-toggle" (click)="toggleDropdown($event)">
+          Mais ações
+          <svg class="arrow-icon" [class.open]="dropdownAberto" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+
+        <!-- Menu Dropdown Popover -->
+        <div class="dropdown-menu" *ngIf="dropdownAberto" (click)="$event.stopPropagation()">
+          <div class="dropdown-header">ASSOCIADO</div>
+          <button class="dropdown-item" (click)="executarAcao('Ver convênios')">Ver convênios</button>
+          <button class="dropdown-item" (click)="executarAcao('Gerar ficha de adesão')">Gerar ficha de adesão</button>
+          <button class="dropdown-item" (click)="executarAcao('Termo de desligamento')">Termo de desligamento</button>
+          <div class="dropdown-divider"></div>
+          <button class="dropdown-item" (click)="executarAcao('Reativar')">Reativar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Abas de Navegação Secundárias -->
+  <div class="tabs-container">
+    <button 
+      *ngFor="let tab of tabs" 
+      class="tab-item" 
+      [class.active]="abaAtiva === tab.id"
+      (click)="selecionarAba(tab.id)">
+      {{ tab.label }}
+      <span class="dot-indicator" *ngIf="tab.hasDot"></span>
+    </button>
+  </div>
+
+  <!-- Conteúdo principal: Cards de Informações -->
+  <div class="content-body" *ngIf="abaAtiva === 'dados-gerais'">
+    <!-- Card: Dados Pessoais -->
+    <div class="card">
+      <h2 class="card-title">Dados pessoais</h2>
+      <div class="data-grid">
+        <div class="data-item">
+          <span class="data-label">CPF</span>
+          <span class="data-value">***.887.***-55</span>
+        </div>
+        <div class="data-item">
+          <span class="data-label">RG</span>
+          <span class="data-value">12.345.678-9</span>
+        </div>
+        <div class="data-item">
+          <span class="data-label">NASCIMENTO</span>
+          <span class="data-value">14/03/1988</span>
+        </div>
+        <div class="data-item">
+          <span class="data-label">SEXO</span>
+          <span class="data-value">Feminino</span>
+        </div>
+        <div class="data-item">
+          <span class="data-label">ESTADO CIVIL</span>
+          <span class="data-value">Casada</span>
+        </div>
+        <div class="data-item">
+          <span class="data-label">E-MAIL</span>
+          <span class="data-value">helena.rocha&#64;email.com</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card: Informações de Associado -->
+    <div class="card">
+      <h2 class="card-title">Informações de associado</h2>
+      <div class="data-grid">
+        <div class="data-item">
+          <span class="data-label">CATEGORIA</span>
+          <span class="data-value">Efetivo</span>
+        </div>
+        <div class="data-item">
+          <span class="data-label">VÍNCULO DESDE</span>
+          <span class="data-value">2021</span>
+        </div>
+        <div class="data-item">
+          <span class="data-label">INDICADO POR</span>
+          <span class="data-value">Carlos E. Ramos</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,275 @@
+/* Variáveis de Cor e Tema */
+:host {
+  --bg-page: #f7f4ed;
+  --bg-card: #ffffff;
+  --text-primary: #1f1f1f;
+  --text-muted: #888279;
+  --olive-primary: #856a28;
+  --olive-light: #eaddc5;
+  --olive-track: #f0ebe1;
+  --border-color: #eee9df;
+  
+  --badge-red-bg: #fde8e8;
+  --badge-red-text: #c84040;
+  --badge-orange-bg: #fdf0e6;
+  --badge-orange-text: #d96b27;
+  --badge-yellow-bg: #fdf8e6;
+  --badge-yellow-text: #b8860b;
+
+
+}
+
+
+/* Cards Gerais */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 10px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.card-header {
+  margin-bottom: 20px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+  color: var(--text-primary);
+}
+
+.card-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* 1. Grid de KPIs */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.kpi-card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.kpi-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.kpi-title {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.kpi-icon {
+  color: #a09a8e;
+  display: flex;
+  align-items: center;
+}
+
+.kpi-value {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.kpi-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* 2. Seção Intermediária (Gráfico + Prazos) */
+.dashboard-middle {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .dashboard-middle {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Gráfico */
+.chart-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 220px;
+  padding-top: 20px;
+  gap: 12px;
+}
+
+.chart-bar-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.bar-track {
+  width: 100%;
+  max-width: 80px;
+  flex-grow: 1;
+  background-color: var(--olive-track);
+  border-radius: 4px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.bar-fill {
+  width: 100%;
+  background-color: var(--olive-primary);
+  border-radius: 4px 4px 0 0;
+  transition: height 0.3s ease;
+}
+
+.bar-label {
+  margin-top: 12px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* Lista de Prazos */
+.deadlines-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.deadline-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.deadline-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.deadline-title {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.deadline-author {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* Badges */
+.badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.badge-red {
+  background-color: var(--badge-red-bg);
+  color: var(--badge-red-text);
+}
+
+.badge-orange {
+  background-color: var(--badge-orange-bg);
+  color: var(--badge-orange-text);
+}
+
+.badge-yellow {
+  background-color: var(--badge-yellow-bg);
+  color: var(--badge-yellow-text);
+}
+
+/* 3. Tabela de Processos Recentes */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.data-table th {
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 0.85rem;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.data-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.9rem;
+  vertical-align: middle;
+}
+
+.data-table tr:last-child td {
+  border-bottom: none;
+}
+
+.user-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--olive-light);
+  color: var(--olive-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.user-name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.user-id {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.col-processo {
+  font-weight: 500;
+}
+
+.col-fase {
+  color: var(--text-muted);
+}

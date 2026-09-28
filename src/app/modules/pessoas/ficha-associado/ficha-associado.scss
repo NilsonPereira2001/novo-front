@@ -1,0 +1,511 @@
+/* =========================================================
+   HEADER DE PERFIL
+   ========================================================= */
+.header-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.avatar-large {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background-color: var(--gold-soft);
+  color: var(--gold-dark);
+
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.subtitle-label {
+  font-size: 0.725rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text-gray);
+  text-transform: uppercase;
+}
+
+.profile-name {
+  margin: 2px 0 6px;
+
+  font-size: 1.6rem;
+  font-weight: 700;
+
+  color: var(--text-primary);
+}
+
+.badges-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  padding: 3px 10px;
+
+  border-radius: 12px;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge-associado {
+  background-color: var(--gold-light);
+  color: var(--gold-dark);
+}
+
+.code-text {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.badge-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  background-color: #edebe8;
+  color: var(--text-gray-dark);
+}
+
+.badge-status .dot {
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background-color: var(--text-gray-dark);
+}
+/* =========================================================
+   AÇÕES DO HEADER
+   ========================================================= */
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+
+  padding: 9px 16px;
+
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+
+  color: var(--text-primary);
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.btn-outline:hover {
+  background-color: var(--bg-main);
+  border-color: var(--gold-primary);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--gold-primary);
+  color: #ffffff;
+
+  border: none;
+  border-radius: var(--radius-md);
+
+  padding: 10px 20px;
+
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--gold-hover);
+  box-shadow: var(--shadow-sm);
+}
+
+
+/* =========================================================
+   DROPDOWN
+   ========================================================= */
+
+.dropdown-wrapper {
+  position: relative;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.arrow-icon {
+  transition: transform 0.2s ease;
+}
+
+.arrow-icon.open {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+
+  width: 210px;
+
+  background: var(--bg-card);
+
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-lg);
+
+  padding: 8px 0;
+
+  z-index: 100;
+}
+
+.dropdown-header {
+  padding: 8px 16px 4px;
+
+  font-size: 0.7rem;
+  font-weight: 700;
+
+  letter-spacing: 0.05em;
+
+  color: var(--text-gray);
+
+  text-transform: uppercase;
+}
+
+.dropdown-item {
+  width: 100%;
+
+  padding: 8px 16px;
+
+  text-align: left;
+
+  background: transparent;
+  border: none;
+
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+
+  color: var(--text-primary);
+
+  cursor: pointer;
+
+  transition: background-color 0.15s ease;
+}
+
+.dropdown-item:hover {
+  background-color: var(--bg-main);
+}
+
+.dropdown-divider {
+  height: 1px;
+
+  margin: 6px 0;
+
+  background-color: var(--border-color);
+}
+
+
+/* =========================================================
+   ABAS
+   ========================================================= */
+
+.tabs-container {
+  display: flex;
+  gap: 24px;
+
+  border-bottom: 1px solid var(--border-color);
+
+  overflow-x: auto;
+
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tabs-container::-webkit-scrollbar {
+  display: none;
+}
+
+.tab-item {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  flex-shrink: 0;
+
+  padding: 10px 0;
+
+  background: none;
+  border: none;
+
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  color: var(--text-muted);
+
+  cursor: pointer;
+
+  white-space: nowrap;
+}
+
+.tab-item.active {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.tab-item.active::after {
+  content: '';
+
+  position: absolute;
+
+  bottom: -1px;
+  left: 0;
+  right: 0;
+
+  height: 2px;
+
+  background-color: var(--gold-primary);
+}
+
+.dot-indicator {
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background-color: var(--gold-primary);
+}
+
+
+/* =========================================================
+   CORPO
+   ========================================================= */
+
+.content-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.card {
+  background: var(--bg-card);
+
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+
+  padding: 20px 24px;
+
+  box-shadow: var(--shadow-sm);
+}
+
+.card-title {
+  margin: 0 0 18px;
+
+  font-size: 1.15rem;
+  font-weight: 700;
+
+  color: var(--text-primary);
+}
+
+
+/* =========================================================
+   GRID DE DADOS
+   ========================================================= */
+
+.data-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px 16px;
+}
+
+.data-item {
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.data-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+
+  letter-spacing: 0.05em;
+
+  color: var(--text-gray);
+
+  text-transform: uppercase;
+}
+
+.data-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  color: var(--text-primary);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  :host {
+    padding: 16px;
+  }
+
+  .header-card {
+    flex-direction: column;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .data-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .user-profile {
+    width: 100%;
+    gap: 12px;
+  }
+
+  .avatar-large {
+    width: 54px;
+    height: 54px;
+
+    font-size: 1rem;
+  }
+
+  .profile-name {
+    font-size: 1.3rem;
+  }
+
+  .subtitle-label {
+    font-size: 0.68rem;
+  }
+
+  .badges-row {
+    gap: 6px;
+  }
+
+  .badge {
+    font-size: 0.68rem;
+    padding: 3px 8px;
+  }
+
+  .header-actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .header-actions .btn-outline,
+  .header-actions .btn-primary {
+    width: 100%;
+  }
+
+  .dropdown-wrapper {
+    width: 100%;
+  }
+
+  .dropdown-menu {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .tabs-container {
+    gap: 18px;
+  }
+
+  .tab-item {
+    font-size: 0.8rem;
+  }
+
+  .card {
+    padding: 16px;
+    border-radius: var(--radius-md);
+  }
+
+  .card-title {
+    font-size: 1rem;
+    margin-bottom: 16px;
+  }
+
+  .data-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .data-label {
+    font-size: 0.65rem;
+  }
+
+  .data-value {
+    font-size: 0.85rem;
+  }
+}

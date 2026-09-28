@@ -1,6 +1,9 @@
 import { Routes } from "@angular/router";
 import { JuridicoPage } from "./juridico-page/juridico-page";
 import { DashboardPage } from "./pages/dashboard-page/dashboard-page";
+import { PessoasPage } from "../pessoas/pessoas-page/pessoas-page";
+import { Pessoas } from "./pages/pessoas/pessoas";
+import { Processos } from "./pages/processos/processos";
 
 export const JuridicoRoutes: Routes = [
     {
@@ -10,6 +13,14 @@ export const JuridicoRoutes: Routes = [
             {
                 path: "dashboard",
                 component: DashboardPage
+            },
+            {
+                path: "pessoas",
+                component: Pessoas
+            },
+            {
+                path: "processos",
+                component: Processos
             }
         ]
     }

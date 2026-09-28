@@ -1,0 +1,143 @@
+<div class="container">
+  <!-- 1. Filtros Superiores (Tabs) -->
+  <div class="tabs-container">
+    <button 
+      *ngFor="let tab of tabs" 
+      class="tab-btn" 
+      [class.active]="activeTab === tab"
+      (click)="selectTab(tab)">
+      {{ tab }}
+    </button>
+  </div>
+
+  <!-- 2. Barra de Ações (Busca, Selects, Exportar, Novo) -->
+  <div class="actions-bar">
+    <div class="filters-group">
+      <!-- Input de Busca -->
+      <div class="search-box">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input 
+          type="text" 
+          placeholder="Buscar por nº do processo ou pessoa" 
+          [(ngModel)]="searchQuery"
+          (input)="onSearchChange()">
+      </div>
+      <!-- Select Área -->
+      <div class="select-wrapper">
+        <select [(ngModel)]="selectedArea">
+          <option value="todas">Área: todas</option>
+          <option value="Cível">Cível</option>
+          <option value="Trabalhista">Trabalhista</option>
+          <option value="Previdenciário">Previdenciário</option>
+          <option value="Administrativo">Administrativo</option>
+        </select>
+        <svg class="select-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
+
+      <!-- Select Advogado -->
+      <div class="select-wrapper">
+        <select [(ngModel)]="selectedAdvogado">
+          <option value="todos">Advogado: todos</option>
+          <option value="Dr. Ricardo Lemos">Dr. Ricardo Lemos</option>
+          <option value="Dra. Camila Duarte">Dra. Camila Duarte</option>
+        </select>
+        <svg class="select-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn-primary" (click)="novoProcesso()">+ Novo processo</button>
+    </div>
+  </div>
+
+  <!-- 3. Tabela de Processos (Dentro de um Card com scroll responsivo) -->
+  <div class="card table-card">
+    <div class="table-wrapper">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Processo</th>
+            <th>Associado</th>
+            <th>Área</th>
+            <th>Advogado</th>
+            <th>Próximo prazo</th>
+            <th>Situação</th>
+            <th class="text-right">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of processosFiltrados">
+            <!-- Processo & Tipo -->
+            <td>
+              <div class="proc-number">{{ item.numero }}</div>
+              <div class="proc-type">{{ item.tipo }}</div>
+            </td>
+
+            <!-- Associado -->
+            <td>
+              <div class="user-cell">
+                <div class="avatar">{{ item.avatar }}</div>
+                <div>
+                  <div class="user-name">{{ item.associado }}</div>
+                  <div class="user-id">{{ item.codigo }}</div>
+                </div>
+              </div>
+            </td>
+
+            <!-- Área -->
+            <td>
+              <span class="badge-area">{{ item.area }}</span>
+            </td>
+
+            <!-- Advogado -->
+            <td class="text-muted">{{ item.advogado }}</td>
+
+            <!-- Próximo Prazo -->
+            <td [class.text-urgente]="item.urgente">{{ item.prazo }}</td>
+
+            <!-- Situação -->
+            <td>
+              <span class="badge-situacao" [ngClass]="item.situacaoClass">
+                <span class="dot"></span>
+                {{ item.situacao }}
+              </span>
+            </td>
+
+            <!-- Botões de Ação -->
+            <td class="text-right">
+              <div class="action-buttons">
+                <button class="btn-outline">Ver processo</button>
+                <button class="btn-more" title="Mais opções">•••</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Rodapé com Paginação -->
+    <div class="table-footer">
+      <div class="footer-info">
+        Mostrando 1–{{ processosFiltrados.length }} de {{ processos.length }}
+      </div>
+      <div class="pagination">
+        <button class="page-btn" [disabled]="currentPage === 1" (click)="setPage(currentPage - 1)">&lt;</button>
+        <button 
+          *ngFor="let page of pages" 
+          class="page-btn" 
+          [class.active]="currentPage === page"
+          (click)="setPage(page)">
+          {{ page }}
+        </button>
+        <button class="page-btn" [disabled]="currentPage === totalPages" (click)="setPage(currentPage + 1)">&gt;</button>
+      </div>
+    </div>
+  </div>
+</div>

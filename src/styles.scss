@@ -1,328 +1,684 @@
 @import "primeicons/primeicons.css";
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
-$bg-main: #fbf9f4;
-$bg-card: #ffffff;
-$text-dark: #1f2937;
-$text-muted: #6b7280;
-$border-color: #e5e7eb;
-$green: #16a34a;
-$gold: #ca8a04;
-$red: #dc2626;
-$bg-input: #f6f4ed;
-$border-input: #e2ded3;
-$text-label: #52504a;
-$border-card: #e8e5dc;
 
-
+/* =========================================================
+   VARIÁVEIS GLOBAIS
+   ========================================================= */
 
 :root {
-  /* Variáveis globais de fonte */
-  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
-  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  
-  /* Definindo a fonte padrão do corpo da aplicação */
+
+  /* ---------------------------------------------------------
+     Cores principais
+     --------------------------------------------------------- */
+
+  --bg-main: #fbf9f4;
+  --bg-card: #ffffff;
+  --bg-input: #f6f4ed;
+
+  --text-dark: #1f2937;
+  --text-muted: #6b7280;
+  --text-label: #52504a;
+
+  --border-color: #e5e7eb;
+  --border-input: #e2ded3;
+  --border-card: #e8e5dc;
+
+  --green: #16a34a;
+  --gold: #ca8a04;
+  --red: #dc2626;
+
+
+  /* ---------------------------------------------------------
+     Cores específicas da interface
+     --------------------------------------------------------- */
+
+  --gold-primary: #b89343;
+  --gold-hover: #a38138;
+  --gold-light: #f5efe3;
+  --gold-soft: #e8e1cf;
+  --gold-text: #937138;
+  --gold-dark: #5c5038;
+
+  --text-black: #111111;
+  --text-primary: #1a1a1a;
+  --text-secondary: #333333;
+  --text-description: #666666;
+  --text-gray: #888888;
+  --text-gray-dark: #444444;
+
+  --search-bg: #f1ede4;
+  --search-border: #dcd5c7;
+  --search-placeholder: #3b719f;
+
+  --table-header-bg: #fbf9f5;
+  --table-border: #e5e2d9;
+  --table-row-border: #f0ede5;
+
+  --input-placeholder: #b0ab9f;
+  --input-focus: #a8a294;
+
+  --button-text: #1a231b;
+
+
+  /* ---------------------------------------------------------
+     Tipografia
+     --------------------------------------------------------- */
+
+  --font-serif:
+    'Playfair Display',
+    Georgia,
+    'Times New Roman',
+    serif;
+
+  --font-sans:
+    'Inter',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+
   --font-family: var(--font-sans);
+
+
+  /* ---------------------------------------------------------
+     Bordas
+     --------------------------------------------------------- */
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 14px;
+
+
+  /* ---------------------------------------------------------
+     Sombras
+     --------------------------------------------------------- */
+
+  --shadow-sm:
+    0 1px 2px rgba(0, 0, 0, 0.04);
+
+  --shadow-md:
+    0 1px 3px rgba(0, 0, 0, 0.06);
+
+  --shadow-lg:
+    0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-/* Aplicação Global da Tipografia */
-html, body {
-  font-family: var(--font-family);
+
+/* =========================================================
+   RESET / BASE
+   ========================================================= */
+
+html,
+body {
   margin: 0;
   padding: 0;
+
+  font-family: var(--font-family);
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Aplica a fonte serifada automaticamente em todos os títulos */
-h1, h2, h3, h4, h5, h6, .font-serif {
+body {
+  background-color: var(--bg-main);
+  color: var(--text-dark);
+}
+
+
+/* =========================================================
+   TIPOGRAFIA
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-serif {
   font-family: var(--font-serif);
 }
 
-/* Força o PrimeNG a herdar a fonte global da aplicação */
+
+/* =========================================================
+   PRIME NG
+   ========================================================= */
+
 .p-component {
   font-family: var(--font-sans) !important;
 }
 
 
-//Componentes Globais
-.container {
-  margin-left: 20px;
-  margin-right: 20px;
-}
+/* =========================================================
+   LABEL DE SEÇÃO
+   ========================================================= */
 
 .section-label {
+  display: block;
+
   font-size: 11px;
   font-weight: 700;
-  color: #a38148;
+
+  color: var(--gold-primary);
+
   letter-spacing: 0.8px;
   text-transform: uppercase;
-  display: block;
 }
 
-/* Header */
+
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
+
 .page-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  
   margin-bottom: 28px;
 }
 
+
 .header-titles h1 {
-  font-family: Georgia, serif;
+  font-family: var(--font-serif);
+
   font-size: 36px;
   font-weight: 600;
-  margin: 4px 0 8px 0;
-  color: #1a1a1a;
+
+  margin: 4px 0 8px;
+
+  color: var(--text-primary);
 }
 
+
 .header-titles .description {
+  margin: 0;
+
   font-size: 14px;
-  color: #666666;
+
+  color: var(--text-description);
+}
+
+
+/* =========================================================
+   CARDS DE ESTATÍSTICAS
+   ========================================================= */
+
+   /* Header */
+.header-card h1 {
+  font-size: 32px;
+  font-weight: 600;
+  margin: 4px 0 8px 0;
+  color: var(--text-black);
+}
+
+.subtitle-card {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold-primary);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+
+
+.header-card .description-card {
+  font-size: 14px;
+  color: var(--text-gray);
   margin: 0;
 }
 
-/* Cards de Estatísticas no Header */
 .stats-container {
   display: flex;
   gap: 12px;
 }
 
+
 .stat-card {
-  background: #ffffff;
-  border: 1px solid #e5e2d9;
-  border-radius: 6px;
   width: 90px;
   height: 80px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+
+  background: var(--bg-card);
+
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-sm);
+
+  box-shadow: var(--shadow-sm);
 }
 
+
 .stat-number {
+  margin-bottom: 6px;
+
   font-size: 24px;
   font-weight: 700;
-  color: #111111;
   line-height: 1;
-  margin-bottom: 6px;
+
+  color: var(--text-black);
 }
+
 
 .stat-label {
   font-size: 11px;
-  color: #888888;
+  color: var(--text-gray);
 }
+
+
+/* =========================================================
+   DIVISOR
+   ========================================================= */
 
 .divider {
   border: none;
-  border-top: 1px solid #e2ded5;
-  margin: 24px 0 32px 0;
+  border-top: 1px solid var(--border-input);
+
+  margin: 24px 0 32px;
 }
+
+
+/* =========================================================
+   CAMPO DE BUSCA
+   ========================================================= */
 
 .custom-search-input.p-inputtext {
-  background-color: #f1ede4 !important;
-  border: 1px solid #dcd5c7 !important;
-  border-radius: 6px !important;
-  padding: 8px 12px 8px 36px !important;
-  font-size: 13.5px !important;
-  color: #333333 !important;
   width: 100% !important;
-  box-shadow: none !important;
 
-  &::placeholder {
-    color: #3b719f !important;
-    opacity: 0.9 !important;
-  }
+  box-sizing: border-box;
+
+  padding: 8px 12px 8px 36px !important;
+
+  background-color: var(--search-bg) !important;
+
+  border: 1px solid var(--search-border) !important;
+  border-radius: var(--radius-sm) !important;
+
+  font-size: 13.5px !important;
+  color: var(--text-secondary) !important;
+
+  box-shadow: none !important;
 }
 
+
+.custom-search-input.p-inputtext::placeholder {
+  color: var(--search-placeholder) !important;
+  opacity: 0.9 !important;
+}
+
+
 .custom-search-icon {
+  position: absolute;
+
   color: #555555 !important;
+
   font-size: 13px !important;
+
   left: 12px !important;
 }
 
+
+/* =========================================================
+   BOTÃO CUSTOMIZADO
+   ========================================================= */
+
 .btn-custom.p-button {
-  background-color: #b89343 !important; /* Tom dourado/ocre exato */
-  border: none !important;
-  border-radius: 6px !important;
-  color: #1a231b !important;            /* Texto e ícone escuros */
-  font-weight: 600 !important;
-  font-size: 14px !important;
-  padding: 8px 16px !important;
+  width: 100%;
+
   display: inline-flex !important;
   align-items: center !important;
-  gap: 8px !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12) !important;
+  justify-content: center;
+
+  gap: 8px;
+
+  padding: 8px 16px !important;
+
+  background-color: var(--gold-primary) !important;
+
+  border: none !important;
+  border-radius: var(--radius-sm) !important;
+
+  color: var(--button-text) !important;
+
+  font-size: 14px !important;
+  font-weight: 600 !important;
+
+  box-shadow: var(--shadow-md) !important;
+
   cursor: pointer;
-  transition: filter 0.2s ease, box-shadow 0.2s ease;
-  width: 100%;
+
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
+
 .btn-custom.p-button:hover {
-  background-color: #a38138 !important;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.18) !important;
+  background-color: var(--gold-hover) !important;
+
+  box-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.18) !important;
 }
+
 
 .btn-custom .p-button-icon {
   font-size: 13px !important;
   font-weight: bold !important;
 }
 
-/* src/styles.scss (Global) */
 
-/* 1. pInputText e p-datepicker (Campos de Texto) */
+/* =========================================================
+   INPUTS PRIME NG
+   ========================================================= */
+
 input.p-inputtext,
 .p-datepicker-input {
   width: 100%;
+
   height: 38px;
+
+  box-sizing: border-box;
+
   padding: 0 0.75rem;
-  background-color: $bg-input !important;
-  border: 1px solid $border-input !important;
-  border-radius: 8px !important;
+
+  background-color: var(--bg-input) !important;
+
+  border: 1px solid var(--border-input) !important;
+  border-radius: var(--radius-md) !important;
+
   font-size: 0.875rem !important;
-  color: $text-dark !important;
+
+  color: var(--text-dark) !important;
+
   box-shadow: none !important;
-
-  &::placeholder {
-    color: #b0ab9f !important;
-  }
-
-  &:focus,
-  &:focus-visible {
-    border-color: #a8a294 !important;
-    background-color: #ffffff !important;
-  }
 }
 
-/* 2. p-select / p-dropdown (Selects) */
+
+input.p-inputtext::placeholder,
+.p-datepicker-input::placeholder {
+  color: var(--input-placeholder) !important;
+}
+
+
+input.p-inputtext:focus,
+input.p-inputtext:focus-visible,
+.p-datepicker-input:focus,
+.p-datepicker-input:focus-visible {
+  border-color: var(--input-focus) !important;
+
+  background-color: var(--bg-card) !important;
+
+  outline: none;
+}
+
+.custom-search-input {
+  width: 100%;
+  background-color: #f1ede4;    /* Cor exata do fundo bege claro */
+  border: 1px solid #dcd5c7;      /* Borda suave */
+  border-radius: 6px;            /* Cantos arredondados */
+  padding: 8px 12px 8px 36px;    /* Espaço interno reservado para o ícone */
+  font-size: 13.5px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #333333;
+  outline: none;
+  box-sizing: border-border-box;
+  transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
+}
+
+/* Efeito ao clicar/focar no input */
+.custom-search-input:focus {
+  border-color: #a38148;
+  background-color: #f7f4ed;
+  box-shadow: 0 0 0 2px rgba(163, 129, 72, 0.15);
+}
+
+/* Cor do texto do Placeholder (tom azul-acinzentado idêntico à imagem) */
+.custom-search-input::placeholder {
+  color: #3b719f;
+  opacity: 0.9;
+}
+
+/* Ícone posicionado absolutamente à esquerda */
+.search-icon {
+  position: absolute;
+  left: 12px;
+  color: #555555;
+  font-size: 13px;
+  pointer-events: none; /* Garante que cliques no ícone fiquem no input */
+}
+
+/* Se utilizar o ícone SVG nativo */
+.search-icon-svg {
+  position: absolute;
+  left: 12px;
+  width: 14px;
+  height: 14px;
+  color: #555555;
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   SELECT / DROPDOWN
+   ========================================================= */
+
 .p-select,
 .p-dropdown {
   width: 100%;
   height: 38px;
-  background-color: $bg-input !important;
-  border: 1px solid $border-input !important;
-  border-radius: 8px !important;
-  box-shadow: none !important;
+
+  box-sizing: border-box;
+
   display: flex;
   align-items: center;
 
-  .p-select-label,
-  .p-dropdown-label {
-    padding: 0 0.75rem !important;
-    font-size: 0.875rem !important;
-    color: $text-dark !important;
-    display: flex;
-    align-items: center;
-  }
+  background-color: var(--bg-input) !important;
 
-  .p-select-dropdown,
-  .p-dropdown-trigger {
-    width: 2.2rem;
-    color: $text-label !important;
-  }
+  border: 1px solid var(--border-input) !important;
+  border-radius: var(--radius-md) !important;
 
-  &:not(.p-disabled):hover {
-    border-color: #a8a294 !important;
-  }
-
-  &.p-focus {
-    border-color: #a8a294 !important;
-    background-color: #ffffff !important;
-  }
+  box-shadow: none !important;
 }
 
-/* 3. p-datepicker (Campo Data) */
+
+.p-select .p-select-label,
+.p-dropdown .p-dropdown-label {
+  display: flex;
+  align-items: center;
+
+  padding: 0 0.75rem !important;
+
+  font-size: 0.875rem !important;
+
+  color: var(--text-dark) !important;
+}
+
+
+.p-select .p-select-dropdown,
+.p-dropdown .p-dropdown-trigger {
+  width: 2.2rem;
+
+  color: var(--text-label) !important;
+}
+
+
+.p-select:not(.p-disabled):hover,
+.p-dropdown:not(.p-disabled):hover {
+  border-color: var(--input-focus) !important;
+}
+
+
+.p-select.p-focus,
+.p-dropdown.p-focus {
+  border-color: var(--input-focus) !important;
+
+  background-color: var(--bg-card) !important;
+}
+
+
+/* =========================================================
+   DATEPICKER
+   ========================================================= */
+
 .p-datepicker-host,
 p-datepicker {
   width: 100%;
   display: block;
 }
 
+
 .p-datepicker-input-container {
   width: 100%;
 }
 
-/* 4. Painéis Suspensos (Popups) - Como são renderizados fora da árvore do componente (no body) */
+
+/* =========================================================
+   PAINÉIS / POPUPS
+   ========================================================= */
+
 .p-select-overlay,
 .p-dropdown-panel,
 .p-datepicker-panel {
-  background-color: #ffffff !important;
-  border: 1px solid $border-card !important;
-  border-radius: 8px !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+  background-color: var(--bg-card) !important;
+
+  border: 1px solid var(--border-card) !important;
+
+  border-radius: var(--radius-md) !important;
+
+  box-shadow: var(--shadow-lg) !important;
 }
+
+
+/* =========================================================
+   TABELA
+   ========================================================= */
 
 .table-card {
-  background: #ffffff;
-  border: 1px solid #e5e2d9;
-  border-radius: 8px;
+  background: var(--bg-card);
+
+  border: 1px solid var(--border-card);
+
+  border-radius: var(--radius-md);
+
   overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+
+  box-shadow: var(--shadow-sm);
 }
+
+
+/* Cabeçalho */
 
 ::ng-deep .custom-table .p-datatable-thead > tr > th {
-  background-color: #fbf9f5;
-  color: #888888;
+  background-color: var(--table-header-bg);
+
+  color: var(--text-gray);
+
   font-size: 10px;
+
   font-weight: 700;
+
   letter-spacing: 0.5px;
-  border-bottom: 1px solid #e5e2d9;
+
+  border-bottom: 1px solid var(--table-border);
+
   padding: 14px 20px;
 }
 
+
+/* Corpo */
+
 ::ng-deep .custom-table .p-datatable-tbody > tr > td {
-  border-bottom: 1px solid #f0ede5;
+  border-bottom: 1px solid var(--table-row-border);
+
   padding: 14px 20px;
+
   vertical-align: middle;
 }
+
+
+/* =========================================================
+   CÉLULA DE USUÁRIO
+   ========================================================= */
 
 .user-cell {
   display: flex;
   align-items: center;
+
   gap: 12px;
 }
 
+
 .custom-avatar {
-  background-color: #e8e1cf !important;
-  color: #5c5038 !important;
-  font-size: 13px !important;
-  font-weight: 600 !important;
-  border-radius: 6px !important;
   width: 38px !important;
   height: 38px !important;
+
+  background-color: var(--gold-soft) !important;
+
+  color: var(--gold-dark) !important;
+
+  border-radius: var(--radius-sm) !important;
+
+  font-size: 13px !important;
+  font-weight: 600 !important;
 }
+
 
 .user-info {
   display: flex;
   flex-direction: column;
 }
 
+
 .user-name {
   font-size: 14px;
   font-weight: 700;
-  color: #111111;
+
+  color: var(--text-black);
 }
+
 
 .user-meta {
-  font-size: 11px;
-  color: #888888;
   margin-top: 2px;
+
+  font-size: 11px;
+
+  color: var(--text-gray);
 }
 
+
+/* =========================================================
+   BADGE DE CATEGORIA
+   ========================================================= */
+
 .category-badge {
-  background-color: #f5efe3;
-  color: #937138;
+  display: inline-block;
+
+  padding: 4px 12px;
+
+  background-color: var(--gold-light);
+
+  color: var(--gold-text);
+
+  border-radius: 12px;
+
   font-size: 11px;
   font-weight: 600;
-  padding: 4px 12px;
-  border-radius: 12px;
-  display: inline-block;
 }
+
+
+/* =========================================================
+   TELEFONE
+   ========================================================= */
 
 .phone-text {
   font-size: 13px;
-  color: #444444;
+
+  color: var(--text-gray-dark);
 }
-
-
