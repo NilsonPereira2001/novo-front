@@ -509,3 +509,195 @@
     font-size: 0.85rem;
   }
 }
+
+.telefones-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.telefone-item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.telefone-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.telefone-numero {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.badge-principal {
+  background-color: var(--green);
+  color: var(--badge-text);
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 2px 10px;
+  border-radius: 12px;
+}
+
+.telefone-tipo {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.convenios-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.convenio-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.convenio-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.convenio-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.convenio-nome {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.convenio-descricao {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Badges de Status */
+.badge-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.badge-status .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Status: Ativo */
+.status-ativo {
+  background-color: var(--bg-green);
+  color: var(--badge-ativo-text);
+}
+.status-ativo .dot {
+  background-color: var(--green);
+}
+
+/* Status: Não contratado */
+.status-inativo {
+  background-color: var(--badge-inativo-bg);
+  color: var(--badge-inativo-text);
+}
+.status-inativo .dot {
+  background-color: var(--badge-inativo-text);
+}
+
+.anexos-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.anexo-item-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.anexo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.anexo-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.anexo-nome {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.anexo-data {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Botão Baixar */
+.btn-download {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 8px 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-download:hover {
+  background-color: #f9f7f2;
+  border-color: #d1cabe;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 16px 0;
+}
+
+/* Ações Inferiores */
+.actions-wrapper {
+  margin-top: 24px;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  .anexo-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn-download {
+    width: 100%;
+    text-align: center;
+  }
+
+  .btn-anexar {
+    width: 100%;
+    justify-content: center;
+  }
+}

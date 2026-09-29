@@ -65,11 +65,9 @@
     </button>
   </div>
 
-  <!-- Conteúdo principal: Cards de Informações -->
   <div class="content-body" *ngIf="abaAtiva === 'dados-gerais'">
-    <!-- Card: Dados Pessoais -->
     <div class="card">
-      <h2 class="card-title">Dados pessoais</h2>
+      <h2 class="card-title">Vínculo militar</h2>
       <div class="data-grid">
         <div class="data-item">
           <span class="data-label">CPF</span>
@@ -117,4 +115,119 @@
       </div>
     </div>
   </div>
+  <div class="content-body" *ngIf="abaAtiva === 'contatos'">
+    <div class="card">
+      <h2 class="card-title">Contatos</h2>
+      <div class="data-grid">
+        <div class="telefones-list">
+          <div *ngFor="let item of telefones; let last = last" class="telefone-item">
+            <div class="telefone-header">
+              <span class="telefone-numero">{{ item.numero }}</span>
+              <span *ngIf="item.principal" class="badge-principal">Principal</span>
+            </div>
+            <span class="telefone-tipo">{{ item.tipo }}</span>
+
+            <!-- Linha divisória entre itens (exceto o último) -->
+            <hr *ngIf="!last" class="divider" />
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="content-body" *ngIf="abaAtiva === 'anexos'">
+    <div class="card">
+      <h2 class="card-title">Anexos</h2>
+
+      <div class="anexos-list">
+        <div *ngFor="let item of anexos; let last = last" class="anexo-item-wrapper">
+          <div class="anexo-item">
+            <div class="anexo-info">
+              <span class="anexo-nome">{{ item.nome }}</span>
+              <span class="anexo-data">Enviado em {{ item.dataEnvio }}</span>
+            </div>
+
+            <button class="btn-download">Baixar</button>
+          </div>
+          <hr *ngIf="!last" class="divider" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content-body" *ngIf="abaAtiva === 'convenios'">
+    <div class="card">
+      <h2 class="card-title">Convênios ativos</h2>
+      <div class="convenios-list">
+      <div *ngFor="let item of convenios; let last = last" class="convenio-item">
+        <div class="convenio-content">
+          <div class="convenio-info">
+            <div class="convenio-nome">{{ item.nome }}</div>
+            <div class="convenio-descricao">{{ item.descricao }}</div>
+          </div>
+
+          <div class="badge-status" [ngClass]="item.statusClass">
+            <span class="dot"></span>
+            {{ item.status }}
+          </div>
+        </div>
+
+        <hr *ngIf="!last" class="divider" />
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="content-body" *ngIf="abaAtiva === 'militar'">
+    <div class="card">
+      <h2 class="card-title">Vínculo militar</h2>
+      <div class="data-grid">
+        <div class="data-item">
+          <span class="data-label">Instituição</span>
+          <span class="data-value">Polícia Militar</span>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Unidade</span>
+          <span class="data-value">2º Batalhão</span>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Quadro</span>
+          <span class="data-value">QPPM</span>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Graduação</span>
+          <span class="data-value">Sargento</span>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Incorporação</span>
+          <span class="data-value">10/02/2010</span>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Matrícula</span>
+          <span class="data-value">884.221-0</span>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="content-body" *ngIf="abaAtiva === 'indicacoes'">
+    <div class="card">
+      <h2 class="card-title">Indicações</h2>
+      <div class="convenios-list">
+      <div *ngFor="let item of indicacoes; let last = last" class="convenio-item">
+        <div class="convenio-content">
+          <div class="convenio-info">
+            <div class="convenio-nome">{{ item.nome }}</div>
+            <div class="convenio-descricao">{{ item.data }}</div>
+          </div>
+
+          <div class="badge-status" [ngClass]="item.status">
+            <span class="dot"></span>
+            {{ item.status }}
+          </div>
+        </div>
+
+        <hr *ngIf="!last" class="divider" />
+      </div>
+    </div>
+  </div>
+  </div>
+
 </div>

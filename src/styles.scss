@@ -25,6 +25,7 @@
   --border-card: #e8e5dc;
 
   --green: #16a34a;
+  --bg-green: #00f35929;
   --gold: #ca8a04;
   --red: #dc2626;
 
@@ -280,7 +281,7 @@ h6,
 .divider {
   border: none;
   border-top: 1px solid var(--border-input);
-
+  width: 100%;
   margin: 24px 0 32px;
 }
 
