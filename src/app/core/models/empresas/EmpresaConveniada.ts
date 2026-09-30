@@ -1,0 +1,30 @@
+import { Estado } from "../cadastro/Estado";
+
+export interface EmpresaConveniada{
+    id: number,
+    dataRegistro: Date,
+    razaoSocial: string,
+    nomeFantasia: string,
+    inscricaoEstadual: string,
+    inscricaoMunicipal: string,
+    cnae: string,
+    contrato: string,
+    cnpj: string,
+    cpfResponsavel: string,
+    nomeResponsavel: string,
+    telefoneResponsavel: string,
+    emailResponsavel: string,
+    dataInicio: Date,
+    dataFim: Date,
+    fimIndeterminado: boolean,
+    ativo: boolean,
+    restricao: string,
+    cep: string,
+    logradouro: string,
+    numero: string,
+    complemento: string,
+    estado: Estado,
+    cidade: string,
+    bairro: string,
+    
+}
