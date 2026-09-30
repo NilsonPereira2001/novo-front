@@ -1,0 +1,163 @@
+<div class="container">
+  <!-- Card Superior: Header e Ações -->
+  <div class="card header-card">
+    <div class="header-content">
+      <span class="sub-title">{{ processo.tipo }}</span>
+      <h1 class="main-title">Processo {{ processo.numero }}</h1>
+      <div class="tags-container">
+        <span class="badge badge-light">{{ processo.area }}</span>
+        <span class="badge badge-danger" *ngIf="processo.urgente">
+          <span class="dot"></span> Urgente
+        </span>
+        <span class="meta-text">{{ processo.juizAdvogadoHeader }}</span>
+        <span class="meta-text">•</span>
+        <span class="meta-text">{{ processo.varaHeader }}</span>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <button class="btn btn-outline">+ Nova movimentação</button>
+      <button class="btn btn-primary">Anexar documento</button>
+      <button class="btn btn-outline btn-dropdown">
+        Mais ações <span class="arrow">▼</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Navegação por Abas -->
+  <div class="tabs-container">
+    <button class="tab-item" [class.active]="abaAtiva === 'dados'" (click)="abaAtiva = 'dados'">
+      Dados do processo
+    </button>
+    <button class="tab-item" [class.active]="abaAtiva === 'movimentacoes'" (click)="abaAtiva = 'movimentacoes'">
+      Movimentações
+    </button>
+    <button class="tab-item" [class.active]="abaAtiva === 'partes'" (click)="abaAtiva = 'partes'">
+      Partes
+    </button>
+    <button class="tab-item" [class.active]="abaAtiva === 'anexos'" (click)="abaAtiva = 'anexos'">
+      Anexos
+    </button>
+  </div>
+
+  @if(abaAtiva === 'dados'){
+    <div class="card details-card">
+        <h2 class="card-title">Dados do processo</h2>
+
+        <div class="grid-container">
+        <div class="grid-item">
+            <span class="label">NÚMERO DO PROCESSO</span>
+            <span class="value bold">{{ processo.numero }}</span>
+        </div>
+
+        <div class="grid-item">
+            <span class="label">ÁREA</span>
+            <span class="value bold">{{ processo.area }}</span>
+        </div>
+
+        <div class="grid-item">
+            <span class="label">FASE ATUAL</span>
+            <span class="value bold">{{ processo.faseAtual }}</span>
+        </div>
+
+        <div class="grid-item">
+            <span class="label">VARA / COMARCA</span>
+            <span class="value bold">{{ processo.varaComarca }}</span>
+        </div>
+
+        <div class="grid-item">
+            <span class="label">ADVOGADO RESPONSÁVEL</span>
+            <span class="value bold">{{ processo.advogadoResponsavel }}</span>
+        </div>
+
+        <div class="grid-item">
+            <span class="label">DATA DE ABERTURA</span>
+            <span class="value bold">{{ processo.dataAbertura }}</span>
+        </div>
+
+        <div class="grid-item">
+            <span class="label">VALOR DA CAUSA</span>
+            <span class="value bold">{{ processo.valorCausa }}</span>
+        </div>
+
+        <div class="grid-item">
+            <span class="label">PRÓXIMO PRAZO</span>
+            <span class="value bold">{{ processo.proximoPrazo }}</span>
+        </div>
+
+        <div class="grid-item">
+            <span class="label">SITUAÇÃO</span>
+            <span class="value bold">{{ processo.situacao }}</span>
+        </div>
+
+        <div class="grid-item full-width">
+            <span class="label">OBJETO</span>
+            <span class="value bold">{{ processo.objeto }}</span>
+        </div>
+        </div>
+    </div>
+    <div class="card associado-card">
+        <h2 class="card-title">Associado vinculado</h2>
+        
+        <div class="associado-content">
+        <div class="associado-info">
+            <div class="avatar">{{ processo.associado.iniciais }}</div>
+            <div class="user-details">
+            <span class="user-name">{{ processo.associado.nome }}</span>
+            <span class="user-code">{{ processo.associado.codigo }}</span>
+            </div>
+        </div>
+        <button class="btn btn-outline">Abrir cadastro</button>
+        </div>
+    </div>
+  }
+
+  @if(abaAtiva === 'movimentacoes'){
+    <div class="card timeline-card">
+        <div class="timeline-header">
+            <h2 class="card-title">Movimentações</h2>
+            <span class="card-subtitle">Histórico em ordem cronológica.</span>
+        </div>
+
+        <div class="timeline">
+            @for (item of movimentacoes; track $index) {
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="circle"></div>
+                        <div class="line"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">{{ item.data }}</span>
+                        <h3 class="timeline-title">{{ item.titulo }}</h3>
+                        <p class="timeline-description">{{ item.descricao }}</p>
+                        <span class="timeline-author">{{ item.autor }}</span>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+  }
+
+  @if(abaAtiva === 'partes'){
+    <div class="card partes-card">
+        <h2 class="card-title">Partes envolvidas</h2>
+
+        <div class="partes-list">
+            @for (parte of partes; track $index) {
+                <div class="parte-item">
+                    <div class="parte-info">
+                        <div class="avatar">{{ parte.iniciais }}</div>
+                        <div class="parte-details">
+                        <span class="parte-nome">{{ parte.nome }}</span>
+                        <span class="parte-subtitulo">{{ parte.subtitulo }}</span>
+                        </div>
+                    </div>
+                    <span class="badge badge-papel">{{ parte.papel }}</span>
+                </div>
+            }
+            
+        </div>
+        </div>
+  }
+  
+</div>

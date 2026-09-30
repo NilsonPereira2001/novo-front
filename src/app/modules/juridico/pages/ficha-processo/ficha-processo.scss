@@ -1,0 +1,403 @@
+/* Configuração e Variáveis Globais */
+:host {
+  --bg-color: #fcf9f2;
+  --card-bg: #ffffff;
+  --text-main: #1f1f1f;
+  --text-muted: #8c8a85;
+  --border-color: #eee9e0;
+  --primary-button: #614d25;
+  --primary-button-hover: #4a3a1b;
+  --tab-active-bg: #f4edd9;
+  --tab-active-border: #8b7336;
+  --badge-urgente-bg: #fce8e6;
+  --badge-urgente-text: #a83232;
+  --badge-light-bg: #f0ebe1;
+  --badge-light-text: #6e6454;
+}
+
+/* Cards reutilizáveis */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+/* Card Cabeçalho */
+.header-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.sub-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.main-title {
+  font-family: Georgia, serif;
+  font-size: 28px;
+  margin: 4px 0 12px 0;
+  color: #111;
+}
+
+.tags-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 13px;
+}
+
+.badge {
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.badge-light {
+  background-color: var(--badge-light-bg);
+  color: var(--badge-light-text);
+}
+
+.badge-danger {
+  background-color: var(--badge-urgente-bg);
+  color: var(--badge-urgente-text);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--badge-urgente-text);
+  border-radius: 50%;
+}
+
+.meta-text {
+  color: var(--text-muted);
+}
+
+/* Botões */
+.header-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-outline {
+  background: white;
+  border: 1px solid #dcd7cd;
+  color: #4a463d;
+}
+
+.btn-outline:hover {
+  background: #f7f5f0;
+}
+
+.btn-primary {
+  background: var(--primary-button);
+  border: none;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-button-hover);
+}
+
+.arrow {
+  font-size: 9px;
+  margin-left: 4px;
+}
+
+/* Abas */
+.tabs-container {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tab-item {
+  background: transparent;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #666;
+  cursor: pointer;
+}
+
+.tab-item.active {
+  background-color: var(--tab-active-bg);
+  color: #4a3d1d;
+  font-weight: 600;
+  box-shadow: inset 0 -2px 0 var(--tab-active-border);
+}
+
+/* Conteúdo dos Dados */
+.card-title {
+  font-family: Georgia, serif;
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px 16px;
+}
+
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.full-width {
+  grid-column: span 3;
+}
+
+.label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+.value {
+  font-size: 14px;
+  color: #222;
+}
+
+.value.bold {
+  font-weight: 600;
+}
+
+/* Card Associado */
+.associado-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.associado-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #eae3d2;
+  color: #6b5c3b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.user-code {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .full-width {
+    grid-column: span 1;
+  }
+
+  .header-card {
+    flex-direction: column;
+  }
+}
+
+/* Estilos da Aba Movimentações / Timeline */
+.timeline-card {
+  padding: 32px 28px;
+}
+
+.timeline-header {
+  margin-bottom: 24px;
+}
+
+.timeline-header .card-title {
+  margin-bottom: 4px;
+}
+
+.card-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-item {
+  display: flex;
+  position: relative;
+  padding-bottom: 24px;
+}
+
+/* Remove a linha vertical do último item */
+.timeline-item:last-child .timeline-marker .line {
+  display: none;
+}
+
+.timeline-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 16px;
+  position: relative;
+}
+
+.circle {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #8c7849;
+  background-color: #fcf9f2;
+  box-sizing: border-box;
+  z-index: 1;
+  margin-top: 2px;
+}
+
+.line {
+  width: 1px;
+  background-color: #e5ded0;
+  position: absolute;
+  top: 16px;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.timeline-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.timeline-date {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.timeline-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.timeline-description {
+  font-size: 13px;
+  color: #55524c;
+  margin: 2px 0 4px 0;
+  line-height: 1.4;
+}
+
+.timeline-author {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Estilos da Aba Partes Envolvidas */
+.partes-card {
+  padding: 28px 24px;
+}
+
+.partes-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.parte-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.parte-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.parte-item:first-child {
+  padding-top: 8px;
+}
+
+.parte-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.parte-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.parte-nome {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.parte-subtitulo {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Badge de papéis das partes (Autor, Réu, Advogados) */
+.badge-papel {
+  background-color: #f0ebe1;
+  color: #736855;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 12px;
+}
