@@ -3,11 +3,12 @@ import { isPlatformBrowser, CommonModule } from '@angular/common';
 import { Sidebar } from '../sidebar/sidebar';
 import { Header } from '../header/header';
 import { RouterOutlet } from '@angular/router';
+import { Loading } from '../../shared/loading/loading';
 
 @Component({
   selector: 'app-main-layout',
   standalone: true,
-  imports: [CommonModule, Sidebar, Header, RouterOutlet],
+  imports: [CommonModule, Sidebar, Header, RouterOutlet, Loading],
   templateUrl: './main.html',
   styleUrl: './main.scss'
 })

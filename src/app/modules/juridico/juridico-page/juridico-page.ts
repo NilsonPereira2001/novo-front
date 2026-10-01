@@ -7,4 +7,6 @@ import { RouterModule } from '@angular/router';
   styleUrl: './juridico-page.scss',
   templateUrl: './juridico-page.html',
 })
-export class JuridicoPage {}
+export class JuridicoPage {
+  
+}
